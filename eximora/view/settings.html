@@ -144,82 +144,90 @@
     </style>
   </head>
   <body class="bg-background text-on-background font-body-md">
-    <!-- SideNavBar (Authority Source: JSON) -->
+    <!-- SideNavBar Shell -->
     <aside
-      class="fixed left-0 top-0 flex flex-col h-full w-64 p-4 gap-2 bg-white border-r border-[#E0EAE7] z-50"
+      class="fixed left-0 top-0 hidden lg:flex flex-col h-full w-64 p-4 gap-2 bg-white border-r border-[#E0EAE7] pt-20"
     >
-      <div class="mb-stack-xl px-4">
-        <h1 class="text-xl font-black text-[#007A5E] tracking-tight">
-          Eximora
-        </h1>
-        <p class="text-label-sm text-tertiary-container font-label-sm">
+      <div class="mb-6 px-4">
+        <h2 class="text-xl font-black text-[#007A5E]">Eximora</h2>
+        <p class="text-xs text-slate-500 font-medium uppercase tracking-widest">
           Global Trade Academy
         </p>
       </div>
       <nav class="flex flex-col gap-1">
         <a
-          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 transition-all duration-200"
-          href="#"
+          class="flex items-center gap-3 bg-[#E0EAE7]/50 text-[#007A5E] font-bold rounded-lg px-4 py-3 translate-x-1 duration-200"
+          href="index.html"
         >
           <span class="material-symbols-outlined" data-icon="dashboard"
             >dashboard</span
           >
-          <span class="font-lexend text-sm">Dashboard</span>
+          <span class="text-sm">Dashboard</span>
         </a>
         <a
-          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 transition-all duration-200"
-          href="#"
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all"
+          href="sim-export.html"
         >
           <span class="material-symbols-outlined" data-icon="analytics"
             >analytics</span
           >
-          <span class="font-lexend text-sm">Simulasi</span>
+          <span class="text-sm">Simulasi Ekspor</span>
+        </a>
+                <a
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all"
+          href="sim-import.html"
+        >
+          <span class="material-symbols-outlined" data-icon="analytics"
+            >analytics</span
+          >
+          <span class="text-sm">Simulasi Impor</span>
         </a>
         <a
-          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 transition-all duration-200"
-          href="#"
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all"
+          href="modules.html"
         >
           <span class="material-symbols-outlined" data-icon="menu_book"
             >menu_book</span
           >
-          <span class="font-lexend text-sm">Modul</span>
+          <span class="text-sm">Modul</span>
         </a>
         <a
-          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 transition-all duration-200"
-          href="#"
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all"
+          href="modules.html"
         >
           <span class="material-symbols-outlined" data-icon="play_circle"
             >play_circle</span
           >
-          <span class="font-lexend text-sm">Video Pembelajaran</span>
+          <span class="text-sm">Video Pembelajaran</span>
         </a>
         <a
-          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 transition-all duration-200"
-          href="#"
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all"
+          href="quiz.html"
         >
           <span class="material-symbols-outlined" data-icon="quiz">quiz</span>
-          <span class="font-lexend text-sm">Latihan Soal</span>
+          <span class="text-sm">Latihan Soal</span>
         </a>
-        <!-- FAQ is active for this context -->
+        <hr class="my-4 border-[#E0EAE7]" />
         <a
-          class="flex items-center gap-3 bg-[#E0EAE7]/50 text-[#007A5E] font-bold rounded-lg px-4 py-3 translate-x-1 duration-200"
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all"
           href="#"
         >
           <span class="material-symbols-outlined" data-icon="help">help</span>
-          <span class="font-lexend text-sm">FAQ</span>
+          <span class="text-sm">FAQ</span>
         </a>
-        <!-- Pengaturan is also highly relevant, but FAQ was selected as active for this toggle logic -->
         <a
-          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 transition-all duration-200"
-          href="#"
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all"
+          href="settings.html"
         >
           <span class="material-symbols-outlined" data-icon="settings"
             >settings</span
           >
-          <span class="font-lexend text-sm">Pengaturan</span>
+          <span class="text-sm">Pengaturan</span>
         </a>
       </nav>
-      <div
+    </aside>
+    
+    <div
         class="mt-auto p-4 flex items-center gap-3 border-t border-[#E0EAE7]"
       >
         <img
