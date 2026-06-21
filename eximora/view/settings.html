@@ -1,0 +1,602 @@
+<!doctype html>
+
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#95f5d2",
+              "on-secondary-container": "#306f5c",
+              "surface-container": "#eeeeec",
+              outline: "#6e7a74",
+              "surface-container-high": "#e8e8e6",
+              "secondary-container": "#aff0d8",
+              "on-primary-fixed": "#002117",
+              tertiary: "#4c5553",
+              "secondary-fixed-dim": "#93d3bd",
+              "on-error": "#ffffff",
+              error: "#ba1a1a",
+              secondary: "#296956",
+              "on-primary-container": "#a4ffdd",
+              "inverse-surface": "#2f3130",
+              "tertiary-container": "#646d6b",
+              "surface-tint": "#006c53",
+              "surface-bright": "#f9f9f7",
+              "inverse-primary": "#79d8b7",
+              "outline-variant": "#bdc9c2",
+              "on-primary-fixed-variant": "#00513d",
+              "surface-dim": "#dadad8",
+              "secondary-fixed": "#aff0d8",
+              "on-secondary-fixed-variant": "#07513f",
+              primary: "#005f48",
+              "on-tertiary": "#ffffff",
+              "on-surface-variant": "#3e4944",
+              "tertiary-fixed": "#dbe4e2",
+              "surface-container-low": "#f4f4f1",
+              "on-surface": "#1a1c1b",
+              background: "#f9f9f7",
+              "on-background": "#1a1c1b",
+              "tertiary-fixed-dim": "#bfc8c6",
+              "primary-fixed-dim": "#79d8b7",
+              "on-tertiary-container": "#e6efec",
+              "surface-variant": "#e2e3e0",
+              "surface-container-highest": "#e2e3e0",
+              surface: "#f9f9f7",
+              "inverse-on-surface": "#f1f1ef",
+              "on-primary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "primary-container": "#007a5e",
+              "error-container": "#ffdad6",
+              "on-secondary-fixed": "#002118",
+              "on-tertiary-fixed-variant": "#404947",
+              "surface-container-lowest": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-tertiary-fixed": "#151d1c",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            spacing: {
+              "stack-sm": "8px",
+              "stack-lg": "24px",
+              gutter: "24px",
+              "stack-xs": "4px",
+              margin: "32px",
+              "stack-xl": "48px",
+              "stack-md": "16px",
+              "container-max": "1280px",
+              unit: "8px",
+            },
+            fontFamily: {
+              "label-md": ["Lexend"],
+              "body-sm": ["Lexend"],
+              "label-sm": ["Lexend"],
+              h2: ["Lexend"],
+              display: ["Lexend"],
+              "body-lg": ["Lexend"],
+              h3: ["Lexend"],
+              "body-md": ["Lexend"],
+              h1: ["Lexend"],
+            },
+            fontSize: {
+              "label-md": [
+                "14px",
+                { lineHeight: "1", letterSpacing: "0.02em", fontWeight: "500" },
+              ],
+              "body-sm": ["14px", { lineHeight: "1.5", fontWeight: "400" }],
+              "label-sm": ["12px", { lineHeight: "1", fontWeight: "600" }],
+              h2: ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+              display: [
+                "48px",
+                {
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+              h3: ["20px", { lineHeight: "1.4", fontWeight: "500" }],
+              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+              h1: [
+                "32px",
+                {
+                  lineHeight: "1.2",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .sidebar-active {
+        background-color: rgba(224, 234, 231, 0.5);
+        color: #007a5e;
+        font-weight: 700;
+        border-radius: 0.5rem;
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-background font-body-md">
+    <!-- SideNavBar (Authority Source: JSON) -->
+    <aside
+      class="fixed left-0 top-0 flex flex-col h-full w-64 p-4 gap-2 bg-white border-r border-[#E0EAE7] z-50"
+    >
+      <div class="mb-stack-xl px-4">
+        <h1 class="text-xl font-black text-[#007A5E] tracking-tight">
+          Eximora
+        </h1>
+        <p class="text-label-sm text-tertiary-container font-label-sm">
+          Global Trade Academy
+        </p>
+      </div>
+      <nav class="flex flex-col gap-1">
+        <a
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 transition-all duration-200"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="dashboard"
+            >dashboard</span
+          >
+          <span class="font-lexend text-sm">Dashboard</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 transition-all duration-200"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="analytics"
+            >analytics</span
+          >
+          <span class="font-lexend text-sm">Simulasi</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 transition-all duration-200"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="menu_book"
+            >menu_book</span
+          >
+          <span class="font-lexend text-sm">Modul</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 transition-all duration-200"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="play_circle"
+            >play_circle</span
+          >
+          <span class="font-lexend text-sm">Video Pembelajaran</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 transition-all duration-200"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="quiz">quiz</span>
+          <span class="font-lexend text-sm">Latihan Soal</span>
+        </a>
+        <!-- FAQ is active for this context -->
+        <a
+          class="flex items-center gap-3 bg-[#E0EAE7]/50 text-[#007A5E] font-bold rounded-lg px-4 py-3 translate-x-1 duration-200"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="help">help</span>
+          <span class="font-lexend text-sm">FAQ</span>
+        </a>
+        <!-- Pengaturan is also highly relevant, but FAQ was selected as active for this toggle logic -->
+        <a
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 transition-all duration-200"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="settings"
+            >settings</span
+          >
+          <span class="font-lexend text-sm">Pengaturan</span>
+        </a>
+      </nav>
+      <div
+        class="mt-auto p-4 flex items-center gap-3 border-t border-[#E0EAE7]"
+      >
+        <img
+          alt="User Profile"
+          class="w-10 h-10 rounded-full border border-outline-variant"
+          data-alt="Professional portrait of a male educator in a modern office environment with soft natural lighting"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJht1ZfVKCOilQcWG_z77ZR17w9HiYIXH7lG8NuXgOyvL9G3MdfDtpEh7B8E_BwjJyGSp3PvkYNBW8YzWfBOmE59BZAzwGfxaqKf4leARr-ERJUcjdjRUaOfOQZEAaSmHm_2tArz893aJvlq31g0Os9iHJoIc4ZKYBk7YnTEbslZwyehqh7IVQzSO7JB7V1UvnFW3P_S8Z47aOUHmElYB_6Eh55c0Wam5wt2jLDWCfEjSAm9PM2g8hq06FXoNtXnRWDv9I4clfWmHw"
+        />
+        <div>
+          <p class="font-label-md text-label-md text-on-surface">
+            Budi Pratama
+          </p>
+          <p class="text-[10px] text-tertiary">Premium Member</p>
+        </div>
+      </div>
+    </aside>
+    <!-- Main Content Canvas -->
+    <main class="ml-64 min-h-screen">
+      <!-- TopNavBar (Authority Source: JSON) -->
+      <header class="sticky top-0 bg-white z-40 border-b border-[#E0EAE7]">
+        <div
+          class="flex justify-between items-center w-full px-8 h-16 max-w-[1280px] mx-auto"
+        >
+          <div class="flex items-center gap-stack-lg">
+            <span class="text-2xl font-bold text-[#007A5E] tracking-tight"
+              >Eximora</span
+            >
+            <nav class="hidden md:flex gap-stack-md ml-stack-xl">
+              <a
+                class="text-slate-600 font-medium font-lexend text-sm hover:text-[#004D3C] transition-colors"
+                href="#"
+                >Sumber Daya</a
+              >
+              <a
+                class="text-slate-600 font-medium font-lexend text-sm hover:text-[#004D3C] transition-colors"
+                href="#"
+                >Data Pasar</a
+              >
+            </nav>
+          </div>
+          <div class="flex items-center gap-stack-md">
+            <div class="relative hidden lg:block">
+              <span
+                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant text-[20px]"
+                data-icon="search"
+                >search</span
+              >
+              <input
+                class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-xl font-body-sm text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                placeholder="Cari simulasi..."
+                type="text"
+              />
+            </div>
+            <button
+              class="bg-[#007A5E] text-white px-stack-lg py-2 rounded-xl font-label-md text-label-md scale-100 active:scale-95 transition-transform duration-150"
+            >
+              Simulasi Baru
+            </button>
+          </div>
+        </div>
+      </header>
+      <div class="max-w-[1100px] mx-auto p-margin">
+        <!-- Header Section -->
+        <div class="mb-stack-xl">
+          <h2 class="font-h1 text-h1 text-on-surface mb-stack-xs">
+            Konfigurasi Akademi
+          </h2>
+          <p class="text-body-lg text-tertiary">
+            Sesuaikan pengalaman belajar dan profil perdagangan profesional
+            Anda.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+          <!-- Left Column: Settings Form -->
+          <div class="lg:col-span-7 space-y-gutter">
+            <!-- Account Settings Card -->
+            <div
+              class="bg-white border border-[#E0EAE7] rounded-xl p-stack-lg shadow-sm"
+            >
+              <div class="flex items-center gap-stack-sm mb-stack-lg">
+                <span
+                  class="material-symbols-outlined text-primary-container"
+                  data-icon="person"
+                  >person</span
+                >
+                <h3 class="font-h3 text-h3">Pengaturan Akun</h3>
+              </div>
+              <div class="space-y-stack-md">
+                <div>
+                  <label
+                    class="block font-label-md text-label-md text-on-surface mb-stack-xs"
+                    >Nama Tampilan Profesional</label
+                  >
+                  <input
+                    class="w-full px-stack-md py-3 border border-outline-variant rounded-lg font-body-md focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none transition-all"
+                    type="text"
+                    value="Budi Pratama, SE"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="block font-label-md text-label-md text-on-surface mb-stack-xs"
+                    >Email Resmi</label
+                  >
+                  <input
+                    class="w-full px-stack-md py-3 border border-outline-variant rounded-lg font-body-md focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none transition-all"
+                    type="email"
+                    value="budi.pratama@trade.id"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- Localization Card -->
+            <div
+              class="bg-white border border-[#E0EAE7] rounded-xl p-stack-lg shadow-sm"
+            >
+              <div class="flex items-center gap-stack-sm mb-stack-lg">
+                <span
+                  class="material-symbols-outlined text-primary-container"
+                  data-icon="language"
+                  >language</span
+                >
+                <h3 class="font-h3 text-h3">Lokalisasi</h3>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+                <div>
+                  <label
+                    class="block font-label-md text-label-md text-on-surface mb-stack-xs"
+                    >Mata Uang Default</label
+                  >
+                  <select
+                    class="w-full px-stack-md py-3 border border-outline-variant rounded-lg font-body-md focus:border-primary-container outline-none appearance-none bg-white"
+                  >
+                    <option>IDR - Rupiah Indonesia</option>
+                    <option>USD - US Dollar</option>
+                    <option>EUR - Euro</option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    class="block font-label-md text-label-md text-on-surface mb-stack-xs"
+                    >Zona Waktu</label
+                  >
+                  <select
+                    class="w-full px-stack-md py-3 border border-outline-variant rounded-lg font-body-md focus:border-primary-container outline-none appearance-none bg-white"
+                  >
+                    <option>WIB - Jakarta (GMT+7)</option>
+                    <option>WITA - Makassar (GMT+8)</option>
+                    <option>WIT - Jayapura (GMT+9)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!-- Preferences Card -->
+            <div
+              class="bg-white border border-[#E0EAE7] rounded-xl p-stack-lg shadow-sm"
+            >
+              <div class="flex items-center gap-stack-sm mb-stack-lg">
+                <span
+                  class="material-symbols-outlined text-primary-container"
+                  data-icon="tune"
+                  >tune</span
+                >
+                <h3 class="font-h3 text-h3">Preferensi</h3>
+              </div>
+              <div class="space-y-stack-md">
+                <div class="flex items-center justify-between py-2">
+                  <div>
+                    <p class="font-label-md text-label-md text-on-surface">
+                      Aktifkan Notifikasi Email
+                    </p>
+                    <p class="text-body-sm text-tertiary">
+                      Dapatkan update pasar dan progres modul
+                    </p>
+                  </div>
+                  <div
+                    class="w-12 h-6 bg-primary-container rounded-full relative cursor-pointer"
+                  >
+                    <div
+                      class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"
+                    ></div>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center justify-between py-2 border-t border-surface-container-high"
+                >
+                  <div>
+                    <p class="font-label-md text-label-md text-on-surface">
+                      Autentikasi Dua Faktor
+                    </p>
+                    <p class="text-body-sm text-tertiary">
+                      Tingkatkan keamanan akun perdagangan Anda
+                    </p>
+                  </div>
+                  <button
+                    class="text-primary font-label-sm text-label-sm border border-primary px-stack-md py-1 rounded-full hover:bg-primary-container hover:text-white transition-colors"
+                  >
+                    Aktifkan
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Right Column: FAQ & Support -->
+          <div class="lg:col-span-5 space-y-gutter">
+            <div
+              class="bg-surface-container-low rounded-xl p-stack-lg border border-[#E0EAE7]"
+            >
+              <h3 class="font-h3 text-h3 mb-stack-lg">
+                Pertanyaan yang Sering Diajukan (FAQ)
+              </h3>
+              <div class="space-y-stack-sm">
+                <details
+                  class="group bg-white border border-[#E0EAE7] rounded-lg overflow-hidden"
+                >
+                  <summary
+                    class="flex justify-between items-center p-4 cursor-pointer hover:bg-surface-container-lowest transition-colors list-none"
+                  >
+                    <span class="font-label-md text-label-md pr-4"
+                      >Bagaimana cara mengakses modul simulasi?</span
+                    >
+                    <span
+                      class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                      data-icon="expand_more"
+                      >expand_more</span
+                    >
+                  </summary>
+                  <div class="p-4 pt-0 text-body-sm text-tertiary">
+                    Anda dapat mengaksesnya melalui menu "Simulasi" di bilah
+                    navigasi kiri. Pastikan Anda telah menyelesaikan modul
+                    prasyarat.
+                  </div>
+                </details>
+                <details
+                  class="group bg-white border border-[#E0EAE7] rounded-lg overflow-hidden"
+                >
+                  <summary
+                    class="flex justify-between items-center p-4 cursor-pointer hover:bg-surface-container-lowest transition-colors list-none"
+                  >
+                    <span class="font-label-md text-label-md pr-4"
+                      >Sertifikasi apa yang didapat?</span
+                    >
+                    <span
+                      class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                      data-icon="expand_more"
+                      >expand_more</span
+                    >
+                  </summary>
+                  <div class="p-4 pt-0 text-body-sm text-tertiary">
+                    Setiap penyelesaian jalur pembelajaran akan memberikan
+                    Sertifikat Kompetensi Ekspor-Impor Profesional yang diakui
+                    mitra industri kami.
+                  </div>
+                </details>
+                <details
+                  class="group bg-white border border-[#E0EAE7] rounded-lg overflow-hidden"
+                >
+                  <summary
+                    class="flex justify-between items-center p-4 cursor-pointer hover:bg-surface-container-lowest transition-colors list-none"
+                  >
+                    <span class="font-label-md text-label-md pr-4"
+                      >Bisakah mengekspor data?</span
+                    >
+                    <span
+                      class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                      data-icon="expand_more"
+                      >expand_more</span
+                    >
+                  </summary>
+                  <div class="p-4 pt-0 text-body-sm text-tertiary">
+                    Ya, semua data simulasi perdagangan dapat diekspor dalam
+                    format CSV atau PDF melalui menu Analisis Data.
+                  </div>
+                </details>
+                <details
+                  class="group bg-white border border-[#E0EAE7] rounded-lg overflow-hidden"
+                >
+                  <summary
+                    class="flex justify-between items-center p-4 cursor-pointer hover:bg-surface-container-lowest transition-colors list-none"
+                  >
+                    <span class="font-label-md text-label-md pr-4"
+                      >Seberapa sering data pasar diperbarui?</span
+                    >
+                    <span
+                      class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                      data-icon="expand_more"
+                      >expand_more</span
+                    >
+                  </summary>
+                  <div class="p-4 pt-0 text-body-sm text-tertiary">
+                    Data pasar komoditas dan nilai tukar diperbarui setiap 15
+                    menit untuk memberikan simulasi yang realistis.
+                  </div>
+                </details>
+                <details
+                  class="group bg-white border border-[#E0EAE7] rounded-lg overflow-hidden"
+                >
+                  <summary
+                    class="flex justify-between items-center p-4 cursor-pointer hover:bg-surface-container-lowest transition-colors list-none"
+                  >
+                    <span class="font-label-md text-label-md pr-4"
+                      >Apakah ada diskon grup?</span
+                    >
+                    <span
+                      class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                      data-icon="expand_more"
+                      >expand_more</span
+                    >
+                  </summary>
+                  <div class="p-4 pt-0 text-body-sm text-tertiary">
+                    Kami menawarkan paket khusus untuk institusi pendidikan dan
+                    korporasi dengan minimal 10 pengguna.
+                  </div>
+                </details>
+              </div>
+              <!-- Support CTA -->
+              <div
+                class="mt-stack-xl p-stack-lg bg-primary-container rounded-xl text-on-primary-container"
+              >
+                <h4 class="font-h3 text-h3 mb-stack-xs">
+                  Butuh Bantuan Lebih?
+                </h4>
+                <p class="text-body-sm mb-stack-lg opacity-90">
+                  Tim ahli perdagangan kami siap membantu kendala teknis Anda.
+                </p>
+                <button
+                  class="w-full bg-white text-primary-container py-3 rounded-lg font-label-md text-label-md flex items-center justify-center gap-2 hover:bg-surface-container-lowest transition-colors"
+                >
+                  <span
+                    class="material-symbols-outlined text-[18px]"
+                    data-icon="mail"
+                    >mail</span
+                  >
+                  Kontak Dukungan
+                </button>
+              </div>
+            </div>
+            <!-- Status Card -->
+            <div
+              class="relative overflow-hidden rounded-xl border border-outline-variant bg-white p-stack-lg"
+            >
+              <div class="flex items-center gap-stack-md mb-stack-sm">
+                <div
+                  class="w-3 h-3 bg-green-500 rounded-full animate-pulse"
+                ></div>
+                <span class="font-label-sm text-label-sm text-on-surface"
+                  >Status Sistem Global</span
+                >
+              </div>
+              <p class="text-body-sm text-tertiary">
+                Semua sistem perdagangan dan modul pembelajaran berfungsi
+                normal.
+              </p>
+              <div
+                class="mt-4 h-1 bg-surface-container rounded-full overflow-hidden"
+              >
+                <div class="w-full h-full bg-primary-container"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Footer Save Bar (Modern Floating Pattern) -->
+        <div
+          class="mt-stack-xl flex items-center justify-end gap-stack-md py-stack-lg border-t border-surface-container-high"
+        >
+          <button
+            class="px-stack-lg py-2 rounded-lg font-label-md text-label-md text-tertiary hover:bg-surface-container transition-colors"
+          >
+            Batalkan Perubahan
+          </button>
+          <button
+            class="px-stack-xl py-3 rounded-lg bg-primary-container text-white font-label-md text-label-md shadow-lg shadow-primary-container/20 active:scale-95 transition-all"
+          >
+            Simpan Konfigurasi
+          </button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

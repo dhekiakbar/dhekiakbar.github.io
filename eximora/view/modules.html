@@ -1,0 +1,816 @@
+<!doctype html>
+
+<html class="light" lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#95f5d2",
+              "on-secondary-container": "#306f5c",
+              "surface-container": "#eeeeec",
+              outline: "#6e7a74",
+              "surface-container-high": "#e8e8e8",
+              "secondary-container": "#aff0d8",
+              "on-primary-fixed": "#002117",
+              tertiary: "#4c5553",
+              "secondary-fixed-dim": "#93d3bd",
+              "on-error": "#ffffff",
+              error: "#ba1a1a",
+              secondary: "#296956",
+              "on-primary-container": "#a4ffdd",
+              "inverse-surface": "#2f3130",
+              "tertiary-container": "#646d6b",
+              "surface-tint": "#006c53",
+              "surface-bright": "#f9f9f7",
+              "inverse-primary": "#79d8b7",
+              "outline-variant": "#bdc9c2",
+              "on-primary-fixed-variant": "#00513d",
+              "surface-dim": "#dadad8",
+              "secondary-fixed": "#aff0d8",
+              "on-secondary-fixed-variant": "#07513f",
+              primary: "#005f48",
+              "on-tertiary": "#ffffff",
+              "on-surface-variant": "#3e4944",
+              "tertiary-fixed": "#dbe4e2",
+              "surface-container-low": "#f4f4f1",
+              "on-surface": "#1a1c1b",
+              background: "#f9f9f7",
+              "on-background": "#1a1c1b",
+              "tertiary-fixed-dim": "#bfc8c6",
+              "primary-fixed-dim": "#79d8b7",
+              "on-tertiary-container": "#e6efec",
+              "surface-variant": "#e2e3e0",
+              "surface-container-highest": "#e2e3e0",
+              surface: "#f9f9f7",
+              "inverse-on-surface": "#f1f1ef",
+              "on-primary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "primary-container": "#007a5e",
+              "error-container": "#ffdad6",
+              "on-secondary-fixed": "#002118",
+              "on-tertiary-fixed-variant": "#404947",
+              "surface-container-lowest": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-tertiary-fixed": "#151d1c",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            spacing: {
+              "stack-sm": "8px",
+              "stack-lg": "24px",
+              gutter: "24px",
+              "stack-xs": "4px",
+              margin: "32px",
+              "stack-xl": "48px",
+              "stack-md": "16px",
+              "container-max": "1280px",
+              unit: "8px",
+            },
+            fontFamily: {
+              "label-md": ["Lexend"],
+              "body-sm": ["Lexend"],
+              "label-sm": ["Lexend"],
+              h2: ["Lexend"],
+              display: ["Lexend"],
+              "body-lg": ["Lexend"],
+              h3: ["Lexend"],
+              "body-md": ["Lexend"],
+              h1: ["Lexend"],
+            },
+            fontSize: {
+              "label-md": [
+                "14px",
+                { lineHeight: "1", letterSpacing: "0.02em", fontWeight: "500" },
+              ],
+              "body-sm": ["14px", { lineHeight: "1.5", fontWeight: "400" }],
+              "label-sm": ["12px", { lineHeight: "1", fontWeight: "600" }],
+              h2: ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+              display: [
+                "48px",
+                {
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+              h3: ["20px", { lineHeight: "1.4", fontWeight: "500" }],
+              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+              h1: [
+                "32px",
+                {
+                  lineHeight: "1.2",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      body {
+        background-color: #f9f9f7;
+        font-family: "Lexend", sans-serif;
+      }
+      .tonal-layer {
+        background-color: #f4f4f1;
+      }
+    </style>
+  </head>
+  <body class="text-on-surface">
+    <!-- TopNavBar -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-[#E0EAE7] h-16"
+    >
+      <div
+        class="flex justify-between items-center w-full px-8 h-16 max-w-[1280px] mx-auto"
+      >
+        <div class="flex items-center gap-stack-xl">
+          <span class="text-2xl font-bold text-[#007A5E] tracking-tight"
+            >Eximora</span
+          >
+          <div class="hidden md:flex items-center gap-stack-lg">
+            <a
+              class="text-slate-600 font-medium font-lexend text-sm hover:text-[#004D3C] transition-colors"
+              href="#"
+              >Sumber Daya</a
+            >
+            <a
+              class="text-slate-600 font-medium font-lexend text-sm hover:text-[#004D3C] transition-colors"
+              href="#"
+              >Data Pasar</a
+            >
+          </div>
+        </div>
+        <div class="flex items-center gap-stack-md">
+          <div class="relative hidden lg:block">
+            <span
+              class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm"
+              >search</span
+            >
+            <input
+              class="bg-surface-container-low border border-outline-variant rounded-full pl-10 pr-4 py-2 text-sm focus:outline-none focus:border-primary-container w-64"
+              placeholder="Cari materi..."
+              type="text"
+            />
+          </div>
+          <button
+            class="bg-[#007A5E] text-white px-stack-md py-stack-sm rounded-lg font-lexend text-sm font-medium scale-100 active:scale-95 transition-transform duration-150"
+          >
+            Simulasi Baru
+          </button>
+        </div>
+      </div>
+    </nav>
+    <!-- SideNavBar -->
+    <aside
+      class="fixed left-0 top-16 flex flex-col h-[calc(100vh-64px)] w-64 p-4 gap-2 bg-white border-r border-[#E0EAE7] z-40 hidden md:flex"
+    >
+      <div class="mb-stack-lg px-4 pt-2">
+        <h2 class="text-xl font-black text-[#007A5E]">Eximora</h2>
+        <p class="text-xs text-slate-500 uppercase tracking-widest font-bold">
+          Global Trade Academy
+        </p>
+      </div>
+      <nav class="flex flex-col gap-1">
+        <a
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all rounded-lg group"
+          href="#"
+        >
+          <span class="material-symbols-outlined text-[20px]">dashboard</span>
+          <span class="text-sm font-medium">Dashboard</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all rounded-lg group"
+          href="#"
+        >
+          <span class="material-symbols-outlined text-[20px]">analytics</span>
+          <span class="text-sm font-medium">Simulasi</span>
+        </a>
+        <a
+          class="flex items-center gap-3 bg-[#E0EAE7]/50 text-[#007A5E] font-bold rounded-lg px-4 py-3 translate-x-1 duration-200"
+          href="#"
+        >
+          <span
+            class="material-symbols-outlined text-[20px]"
+            style="font-variation-settings: &quot;FILL&quot; 1"
+            >menu_book</span
+          >
+          <span class="text-sm">Modul</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all rounded-lg group"
+          href="#"
+        >
+          <span class="material-symbols-outlined text-[20px]">play_circle</span>
+          <span class="text-sm font-medium">Video Pembelajaran</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all rounded-lg group"
+          href="#"
+        >
+          <span class="material-symbols-outlined text-[20px]">quiz</span>
+          <span class="text-sm font-medium">Latihan Soal</span>
+        </a>
+        <div class="my-4 border-t border-[#E0EAE7]"></div>
+        <a
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all rounded-lg group"
+          href="#"
+        >
+          <span class="material-symbols-outlined text-[20px]">help</span>
+          <span class="text-sm font-medium">FAQ</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all rounded-lg group"
+          href="#"
+        >
+          <span class="material-symbols-outlined text-[20px]">settings</span>
+          <span class="text-sm font-medium">Pengaturan</span>
+        </a>
+      </nav>
+      <div
+        class="mt-auto p-4 bg-tertiary-fixed rounded-xl border border-outline-variant/30"
+      >
+        <div class="flex items-center gap-3 mb-2">
+          <div
+            class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-white text-xs font-bold"
+          >
+            JD
+          </div>
+          <div>
+            <p class="text-xs font-bold text-on-tertiary-fixed">John Doe</p>
+            <p class="text-[10px] text-tertiary">Premium Student</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- Main Content -->
+    <main class="md:ml-64 pt-16 min-h-screen">
+      <div class="max-w-[1024px] mx-auto px-margin py-stack-xl">
+        <!-- Progress Header Section -->
+        <header class="mb-stack-xl">
+          <div
+            class="flex flex-col md:flex-row md:items-end justify-between gap-stack-md mb-stack-lg"
+          >
+            <div>
+              <nav class="flex gap-2 text-label-sm text-outline mb-2">
+                <span>Beranda</span>
+                <span>/</span>
+                <span class="text-primary font-bold"
+                  >Kurikulum Pembelajaran</span
+                >
+              </nav>
+              <h1 class="font-h1 text-h1 text-on-surface">
+                Pusat Pembelajaran Perdagangan Global
+              </h1>
+            </div>
+            <div
+              class="bg-white p-stack-md border border-[#E0EAE7] rounded-xl flex items-center gap-stack-md min-w-[280px]"
+            >
+              <div class="relative w-12 h-12 flex items-center justify-center">
+                <svg class="w-full h-full -rotate-90">
+                  <circle
+                    class="text-surface-container-high"
+                    cx="24"
+                    cy="24"
+                    fill="transparent"
+                    r="20"
+                    stroke="currentColor"
+                    stroke-width="4"
+                  ></circle>
+                  <circle
+                    class="text-primary-container transition-all duration-500"
+                    cx="24"
+                    cy="24"
+                    fill="transparent"
+                    r="20"
+                    stroke="currentColor"
+                    stroke-dasharray="125.6"
+                    stroke-dashoffset="69.08"
+                    stroke-width="4"
+                  ></circle>
+                </svg>
+                <span
+                  class="absolute text-[10px] font-bold text-primary-container"
+                  >45%</span
+                >
+              </div>
+              <div>
+                <p class="text-label-sm text-outline uppercase tracking-wider">
+                  Kurikulum
+                </p>
+                <p class="text-body-md font-bold text-on-surface">
+                  45% Selesai
+                </p>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- Grid Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+          <!-- Video Curriculum Section -->
+          <section class="lg:col-span-7 space-y-stack-lg">
+            <div class="flex items-center justify-between">
+              <h3
+                class="font-h3 text-h3 text-on-surface flex items-center gap-2"
+              >
+                <span class="material-symbols-outlined text-primary-container"
+                  >play_circle</span
+                >
+                Daftar Video Pembelajaran
+              </h3>
+              <a
+                class="text-label-md text-primary font-bold hover:underline"
+                href="#"
+                >Lihat Semua</a
+              >
+            </div>
+            <div class="grid grid-cols-1 gap-stack-md">
+              <!-- Video Card 1 -->
+              <div
+                class="group bg-white border border-[#E0EAE7] rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300"
+              >
+                <div class="flex flex-col sm:flex-row h-full">
+                  <div
+                    class="relative w-full sm:w-48 h-32 overflow-hidden bg-surface-container"
+                  >
+                    <img
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      data-alt="Logistics shipment containers in a port with heavy machinery and industrial shipping atmosphere at dusk"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwk7DFVoOFYpyLa4e4eeDApPypJnvaGJ2YY14PlZZT9kxM2eEqpm1tiMEV7nnL-o2wihP1KbzqlVzHb4bMyZoxUMuNuX8B6aIzlxpCHXC7Fwb7KAXkSv3X05xGyBxkOKz8rVWq8g-7aoW_DNHbLH7CIlzUO_-OpYFj8ysUe7gSkjgH0bVpkRAm2FSTd-f_RplmPUN-nKFw3bK2o2MuZgIUOpbjNjhiaAm9YmXdInhE693T0JUPjjRo37PIVn_C6B084cgNxO6hahG9"
+                    />
+                    <div
+                      class="absolute inset-0 bg-black/20 flex items-center justify-center"
+                    >
+                      <div
+                        class="bg-white/90 p-2 rounded-full text-primary-container group-hover:bg-primary-container group-hover:text-white transition-colors"
+                      >
+                        <span
+                          class="material-symbols-outlined"
+                          style="font-variation-settings: &quot;FILL&quot; 1"
+                          >play_arrow</span
+                        >
+                      </div>
+                    </div>
+                    <span
+                      class="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] px-1.5 py-0.5 rounded"
+                      >12:45</span
+                    >
+                  </div>
+                  <div class="p-stack-md flex-1 flex flex-col justify-between">
+                    <div>
+                      <div class="flex justify-between items-start mb-1">
+                        <span
+                          class="text-[10px] font-bold text-primary uppercase tracking-tighter"
+                          >Incoterms</span
+                        >
+                        <span
+                          class="material-symbols-outlined text-outline text-sm cursor-pointer hover:text-primary"
+                          >bookmark</span
+                        >
+                      </div>
+                      <h4 class="font-bold text-body-md text-on-surface mb-1">
+                        Ikhtisar Incoterms 2020
+                      </h4>
+                      <p class="text-body-sm text-outline line-clamp-1">
+                        Panduan lengkap aturan perdagangan internasional
+                        terbaru.
+                      </p>
+                    </div>
+                    <div class="flex items-center gap-2 mt-2">
+                      <div
+                        class="h-1 flex-1 bg-surface-container rounded-full overflow-hidden"
+                      >
+                        <div class="h-full bg-primary-container w-[100%]"></div>
+                      </div>
+                      <span class="text-[10px] font-bold text-primary"
+                        >Selesai</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Video Card 2 -->
+              <div
+                class="group bg-white border border-[#E0EAE7] rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300"
+              >
+                <div class="flex flex-col sm:flex-row h-full">
+                  <div
+                    class="relative w-full sm:w-48 h-32 overflow-hidden bg-surface-container"
+                  >
+                    <img
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      data-alt="Macro close up of professional business documents and stamps on a high quality paper surface with natural light"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3NHFhLPkZv7liBbD8XTbaKXGnODWwwEnH6uJ8F7spK_q0YfDNmPNwYZmba586b3JmFvenqh7YQb2zkacU6_5l-lMwZ1ayUhDINIAZ4HWiuzoWpAxhoxCkg6meTDoam0iKBi4HJaLGAlhHXh35hPV8FuFw8f-JIjy7FoTDlJlQ5hUXcQzsQk4FUKgHdn2pGHJpy6O2MOj2q-3ArjV-1mnJMzVVT2UGD_DtJtK8pLMJ7Mr3XADxTk06nU57QRgq6_isW8mTtW5FU2pn"
+                    />
+                    <div
+                      class="absolute inset-0 bg-black/20 flex items-center justify-center"
+                    >
+                      <div
+                        class="bg-white/90 p-2 rounded-full text-primary-container group-hover:bg-primary-container group-hover:text-white transition-colors"
+                      >
+                        <span
+                          class="material-symbols-outlined"
+                          style="font-variation-settings: &quot;FILL&quot; 1"
+                          >play_arrow</span
+                        >
+                      </div>
+                    </div>
+                    <span
+                      class="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] px-1.5 py-0.5 rounded"
+                      >18:20</span
+                    >
+                  </div>
+                  <div class="p-stack-md flex-1 flex flex-col justify-between">
+                    <div>
+                      <div class="flex justify-between items-start mb-1">
+                        <span
+                          class="text-[10px] font-bold text-secondary uppercase tracking-tighter"
+                          >Dokumentasi</span
+                        >
+                        <span
+                          class="material-symbols-outlined text-outline text-sm cursor-pointer hover:text-primary"
+                          >bookmark</span
+                        >
+                      </div>
+                      <h4 class="font-bold text-body-md text-on-surface mb-1">
+                        Dasar-dasar Bill of Lading
+                      </h4>
+                      <p class="text-body-sm text-outline line-clamp-1">
+                        Mengenal dokumen terpenting dalam pengiriman laut.
+                      </p>
+                    </div>
+                    <div class="flex items-center gap-2 mt-2">
+                      <div
+                        class="h-1 flex-1 bg-surface-container rounded-full overflow-hidden"
+                      >
+                        <div class="h-full bg-primary-container w-[40%]"></div>
+                      </div>
+                      <span class="text-[10px] font-bold text-outline"
+                        >40%</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Video Card 3 -->
+              <div
+                class="group bg-white border border-[#E0EAE7] rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 opacity-90"
+              >
+                <div class="flex flex-col sm:flex-row h-full">
+                  <div
+                    class="relative w-full sm:w-48 h-32 overflow-hidden bg-surface-container"
+                  >
+                    <img
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      data-alt="High tech financial dashboard on a large screen with glowing lines and international currency data"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLs1VNlnPjrWZhrZkT717BmOoTOoNg103lTASR_Z840KtHWwwHWvIyYGuf9tzaqLgV3hetk6J9fQDwe1KYJi2F39UF0_bLmybxqlEcl3FpH6_aSu71Bkms43TiOAsjGYJG7XhOQJxLXOAixN5zR7WJNlQxPzpJXAKX3QR_Ojh76QMwaGicYriMxMJRm0B1ypTB4GnkiXB5Nt24fjs4Kz9v9nfoFCQbv6HTDk-YAnjISwlhIjWdiDtH70LrhW7Dby3N-ElEAfB_asG6"
+                    />
+                    <div
+                      class="absolute inset-0 bg-black/20 flex items-center justify-center"
+                    >
+                      <div
+                        class="bg-white/90 p-2 rounded-full text-primary-container group-hover:bg-primary-container group-hover:text-white transition-colors"
+                      >
+                        <span
+                          class="material-symbols-outlined"
+                          style="font-variation-settings: &quot;FILL&quot; 1"
+                          >play_arrow</span
+                        >
+                      </div>
+                    </div>
+                    <span
+                      class="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] px-1.5 py-0.5 rounded"
+                      >25:10</span
+                    >
+                  </div>
+                  <div class="p-stack-md flex-1 flex flex-col justify-between">
+                    <div>
+                      <div class="flex justify-between items-start mb-1">
+                        <span
+                          class="text-[10px] font-bold text-tertiary uppercase tracking-tighter"
+                          >Finance</span
+                        >
+                        <span
+                          class="material-symbols-outlined text-outline text-sm cursor-pointer hover:text-primary"
+                          >bookmark</span
+                        >
+                      </div>
+                      <h4 class="font-bold text-body-md text-on-surface mb-1">
+                        Keuangan Perdagangan &amp; LC
+                      </h4>
+                      <p class="text-body-sm text-outline line-clamp-1">
+                        Mekanisme Letter of Credit dalam transaksi ekspor-impor.
+                      </p>
+                    </div>
+                    <div class="flex items-center gap-2 mt-2">
+                      <div
+                        class="h-1 flex-1 bg-surface-container rounded-full overflow-hidden"
+                      >
+                        <div class="h-full bg-primary-container w-0"></div>
+                      </div>
+                      <span class="text-[10px] font-bold text-outline"
+                        >Belum Mulai</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Video Card 4 -->
+              <div
+                class="group bg-white border border-[#E0EAE7] rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 opacity-90"
+              >
+                <div class="flex flex-col sm:flex-row h-full">
+                  <div
+                    class="relative w-full sm:w-48 h-32 overflow-hidden bg-surface-container"
+                  >
+                    <img
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      data-alt="Clean warehouse storage facility with stacked pallets and modern logistics management equipment"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvUgumwPkJcZSaVkv1FDTNbrApMuRvYYjJr-H-XhtxRFYmSlWTo05UflqyzZhR4ZXn1FoxLb6P3GRexB75ZVjlKr2g2DjjT40I5Nolxz-YTd-t7bQoGkKMZXYWCbs-54Zh8EVqbX_fdfkbvu0tE6iShWGNJJPGJA0bQK5aOV8igNvaUEPoTi1IXZuA4K4YxVMIcDhoPMV8CFVc0iUlFusmuYUWYvH8wWxvkaxXzxDWNVQ8xOfnPuPu2JChbza6fq0f4Do6n_iBCjH4"
+                    />
+                    <div
+                      class="absolute inset-0 bg-black/20 flex items-center justify-center"
+                    >
+                      <div
+                        class="bg-white/90 p-2 rounded-full text-primary-container group-hover:bg-primary-container group-hover:text-white transition-colors"
+                      >
+                        <span
+                          class="material-symbols-outlined"
+                          style="font-variation-settings: &quot;FILL&quot; 1"
+                          >play_arrow</span
+                        >
+                      </div>
+                    </div>
+                    <span
+                      class="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] px-1.5 py-0.5 rounded"
+                      >15:05</span
+                    >
+                  </div>
+                  <div class="p-stack-md flex-1 flex flex-col justify-between">
+                    <div>
+                      <div class="flex justify-between items-start mb-1">
+                        <span
+                          class="text-[10px] font-bold text-error uppercase tracking-tighter"
+                          >Regulation</span
+                        >
+                        <span
+                          class="material-symbols-outlined text-outline text-sm cursor-pointer hover:text-primary"
+                          >bookmark</span
+                        >
+                      </div>
+                      <h4 class="font-bold text-body-md text-on-surface mb-1">
+                        Pro Bea Cukai
+                      </h4>
+                      <p class="text-body-sm text-outline line-clamp-1">
+                        Kepatuhan pabean untuk efisiensi rantai pasok global.
+                      </p>
+                    </div>
+                    <div class="flex items-center gap-2 mt-2">
+                      <div
+                        class="h-1 flex-1 bg-surface-container rounded-full overflow-hidden"
+                      >
+                        <div class="h-full bg-primary-container w-0"></div>
+                      </div>
+                      <span class="text-[10px] font-bold text-outline"
+                        >Belum Mulai</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Knowledge Modules Section -->
+          <aside class="lg:col-span-5 space-y-stack-lg">
+            <div class="flex items-center justify-between">
+              <h3
+                class="font-h3 text-h3 text-on-surface flex items-center gap-2"
+              >
+                <span class="material-symbols-outlined text-primary-container"
+                  >auto_stories</span
+                >
+                Modul Pengetahuan
+              </h3>
+            </div>
+            <div class="space-y-stack-md">
+              <!-- Module Card 1 -->
+              <div
+                class="bg-white border border-[#E0EAE7] rounded-xl p-stack-lg hover:border-primary-container/40 transition-colors relative group"
+              >
+                <div class="flex items-start gap-stack-md">
+                  <div
+                    class="w-12 h-12 rounded-lg bg-secondary-container flex items-center justify-center text-secondary"
+                  >
+                    <span class="material-symbols-outlined text-2xl"
+                      >sailing</span
+                    >
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="font-bold text-body-md text-on-surface mb-1">
+                      Logistik Kelautan
+                    </h4>
+                    <p class="text-body-sm text-outline mb-stack-md">
+                      Strategi rute, manajemen kontainer, dan operasional
+                      pelabuhan global.
+                    </p>
+                    <div class="flex items-center gap-3">
+                      <button
+                        class="text-label-sm font-bold text-primary-container px-3 py-1.5 bg-primary-fixed/30 rounded-lg hover:bg-primary-fixed transition-colors"
+                      >
+                        Buka Modul
+                      </button>
+                      <span
+                        class="text-[10px] text-outline flex items-center gap-1"
+                      >
+                        <span class="material-symbols-outlined text-xs"
+                          >timer</span
+                        >
+                        4 jam belajar
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="absolute top-4 right-4">
+                  <span
+                    class="material-symbols-outlined text-primary-container opacity-0 group-hover:opacity-100 transition-opacity"
+                    >arrow_forward</span
+                  >
+                </div>
+              </div>
+              <!-- Module Card 2 -->
+              <div
+                class="bg-white border border-[#E0EAE7] rounded-xl p-stack-lg hover:border-primary-container/40 transition-colors relative group"
+              >
+                <div class="flex items-start gap-stack-md">
+                  <div
+                    class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center text-primary"
+                  >
+                    <span class="material-symbols-outlined text-2xl"
+                      >payments</span
+                    >
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="font-bold text-body-md text-on-surface mb-1">
+                      Penguasaan Keuangan Perdagangan
+                    </h4>
+                    <p class="text-body-sm text-outline mb-stack-md">
+                      Instrumen pembayaran internasional dan mitigasi risiko
+                      valas.
+                    </p>
+                    <div class="flex items-center gap-3">
+                      <button
+                        class="text-label-sm font-bold text-primary-container px-3 py-1.5 bg-primary-fixed/30 rounded-lg hover:bg-primary-fixed transition-colors"
+                      >
+                        Buka Modul
+                      </button>
+                      <span
+                        class="text-[10px] text-outline flex items-center gap-1"
+                      >
+                        <span class="material-symbols-outlined text-xs"
+                          >timer</span
+                        >
+                        6 jam belajar
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Module Card 3 -->
+              <div
+                class="bg-white border border-[#E0EAE7] rounded-xl p-stack-lg hover:border-primary-container/40 transition-colors relative group border-l-4 border-l-primary-container"
+              >
+                <div class="flex items-start gap-stack-md">
+                  <div
+                    class="w-12 h-12 rounded-lg bg-tertiary-fixed flex items-center justify-center text-tertiary"
+                  >
+                    <span class="material-symbols-outlined text-2xl"
+                      >verified_user</span
+                    >
+                  </div>
+                  <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-1">
+                      <h4 class="font-bold text-body-md text-on-surface">
+                        Kepatuhan Bea Cukai
+                      </h4>
+                      <span
+                        class="bg-error/10 text-error text-[10px] px-1.5 py-0.5 rounded font-bold"
+                        >PENTING</span
+                      >
+                    </div>
+                    <p class="text-body-sm text-outline mb-stack-md">
+                      Regulasi tarif, HS Code, dan dokumentasi kepabeanan
+                      esensial.
+                    </p>
+                    <div class="flex items-center gap-3">
+                      <button
+                        class="text-label-sm font-bold text-primary-container px-3 py-1.5 bg-primary-fixed/30 rounded-lg hover:bg-primary-fixed transition-colors"
+                      >
+                        Lanjutkan
+                      </button>
+                      <span
+                        class="text-[10px] text-outline flex items-center gap-1"
+                      >
+                        <span class="material-symbols-outlined text-xs"
+                          >schedule</span
+                        >
+                        Sedang dipelajari
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Additional Resources Mini Card -->
+            <div
+              class="bg-primary-container text-white rounded-xl p-stack-lg overflow-hidden relative"
+            >
+              <div class="relative z-10">
+                <h4 class="font-bold text-body-lg mb-1">
+                  Unduh Glosarium Ekspor
+                </h4>
+                <p class="text-body-sm text-on-primary-container mb-stack-md">
+                  Kumpulan 500+ istilah perdagangan internasional yang wajib
+                  diketahui.
+                </p>
+                <button
+                  class="bg-white text-primary-container font-bold text-label-sm px-4 py-2 rounded-lg flex items-center gap-2"
+                >
+                  <span class="material-symbols-outlined text-sm"
+                    >download</span
+                  >
+                  Download PDF
+                </button>
+              </div>
+              <span
+                class="material-symbols-outlined absolute -bottom-4 -right-4 text-9xl text-white/10 rotate-12 pointer-events-none"
+                >dictionary</span
+              >
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+    <!-- Bottom Navigation for Mobile -->
+    <nav
+      class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-[#E0EAE7] h-16 flex items-center justify-around z-50"
+    >
+      <a class="flex flex-col items-center gap-1 text-outline" href="#">
+        <span class="material-symbols-outlined">dashboard</span>
+        <span class="text-[10px] font-medium">Dashboard</span>
+      </a>
+      <a
+        class="flex flex-col items-center gap-1 text-primary-container"
+        href="#"
+      >
+        <span
+          class="material-symbols-outlined"
+          style="font-variation-settings: &quot;FILL&quot; 1"
+          >menu_book</span
+        >
+        <span class="text-[10px] font-bold">Modul</span>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-outline" href="#">
+        <span class="material-symbols-outlined">play_circle</span>
+        <span class="text-[10px] font-medium">Video</span>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-outline" href="#">
+        <span class="material-symbols-outlined">person</span>
+        <span class="text-[10px] font-medium">Profil</span>
+      </a>
+    </nav>
+  </body>
+</html>

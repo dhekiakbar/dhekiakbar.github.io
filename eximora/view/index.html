@@ -1,0 +1,594 @@
+<!doctype html>
+
+<html class="light" lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#95f5d2",
+              "on-secondary-container": "#306f5c",
+              "surface-container": "#eeeeec",
+              outline: "#6e7a74",
+              "surface-container-high": "#e8e8e6",
+              "secondary-container": "#aff0d8",
+              "on-primary-fixed": "#002117",
+              tertiary: "#4c5553",
+              "secondary-fixed-dim": "#93d3bd",
+              "on-error": "#ffffff",
+              error: "#ba1a1a",
+              secondary: "#296956",
+              "on-primary-container": "#a4ffdd",
+              "inverse-surface": "#2f3130",
+              "tertiary-container": "#646d6b",
+              "surface-tint": "#006c53",
+              "surface-bright": "#f9f9f7",
+              "inverse-primary": "#79d8b7",
+              "outline-variant": "#bdc9c2",
+              "on-primary-fixed-variant": "#00513d",
+              "surface-dim": "#dadad8",
+              "secondary-fixed": "#aff0d8",
+              "on-secondary-fixed-variant": "#07513f",
+              primary: "#005f48",
+              "on-tertiary": "#ffffff",
+              "on-surface-variant": "#3e4944",
+              "tertiary-fixed": "#dbe4e2",
+              "surface-container-low": "#f4f4f1",
+              "on-surface": "#1a1c1b",
+              background: "#f9f9f7",
+              "on-background": "#1a1c1b",
+              "tertiary-fixed-dim": "#bfc8c6",
+              "primary-fixed-dim": "#79d8b7",
+              "on-tertiary-container": "#e6efec",
+              "surface-variant": "#e2e3e0",
+              "surface-container-highest": "#e2e3e0",
+              surface: "#f9f9f7",
+              "inverse-on-surface": "#f1f1ef",
+              "on-primary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "primary-container": "#007a5e",
+              "error-container": "#ffdad6",
+              "on-secondary-fixed": "#002118",
+              "on-tertiary-fixed-variant": "#404947",
+              "surface-container-lowest": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-tertiary-fixed": "#151d1c",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            spacing: {
+              "stack-sm": "8px",
+              "stack-lg": "24px",
+              gutter: "24px",
+              "stack-xs": "4px",
+              margin: "32px",
+              "stack-xl": "48px",
+              "stack-md": "16px",
+              "container-max": "1280px",
+              unit: "8px",
+            },
+            fontFamily: {
+              "label-md": ["Lexend"],
+              "body-sm": ["Lexend"],
+              "label-sm": ["Lexend"],
+              h2: ["Lexend"],
+              display: ["Lexend"],
+              "body-lg": ["Lexend"],
+              h3: ["Lexend"],
+              "body-md": ["Lexend"],
+              h1: ["Lexend"],
+            },
+            fontSize: {
+              "label-md": [
+                "14px",
+                { lineHeight: "1", letterSpacing: "0.02em", fontWeight: "500" },
+              ],
+              "body-sm": ["14px", { lineHeight: "1.5", fontWeight: "400" }],
+              "label-sm": ["12px", { lineHeight: "1", fontWeight: "600" }],
+              h2: ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+              display: [
+                "48px",
+                {
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+              h3: ["20px", { lineHeight: "1.4", fontWeight: "500" }],
+              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+              h1: [
+                "32px",
+                {
+                  lineHeight: "1.2",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        font-family: "Lexend", sans-serif;
+        background-color: #f9f9f7;
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-background">
+    <!-- TopNavBar Shell -->
+    <header
+      class="fixed top-0 z-50 w-full bg-white border-b border-[#E0EAE7] h-16 flex items-center"
+    >
+      <div
+        class="flex justify-between items-center w-full px-8 max-w-[1280px] mx-auto"
+      >
+        <div class="flex items-center gap-8">
+          <span class="text-2xl font-bold text-[#007A5E] tracking-tight"
+            >Eximora</span
+          >
+          <nav class="hidden md:flex items-center gap-6">
+            <a
+              class="text-[#007A5E] border-b-2 border-[#007A5E] pb-1 font-bold font-lexend text-sm tracking-tight"
+              href="#"
+              >Dashboard</a
+            >
+            <a
+              class="text-slate-600 font-medium hover:text-[#004D3C] transition-colors font-lexend text-sm tracking-tight"
+              href="#"
+              >Sumber Daya</a
+            >
+            <a
+              class="text-slate-600 font-medium hover:text-[#004D3C] transition-colors font-lexend text-sm tracking-tight"
+              href="#"
+              >Data Pasar</a
+            >
+          </nav>
+        </div>
+        <div class="flex items-center gap-4">
+          <button
+            class="flex items-center gap-2 px-4 py-2 bg-primary-container text-white rounded-lg font-lexend text-sm font-medium scale-100 active:scale-95 transition-transform duration-150"
+          >
+            <span class="material-symbols-outlined text-[18px]">add</span>
+            Simulasi Baru
+          </button>
+          <div
+            class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant overflow-hidden"
+          >
+            <img
+              class="w-full h-full object-cover"
+              data-alt="professional headshot of a businessman in a suit with a warm and confident expression"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUHezoCjMVNIQy-dxQAuVWdR97kyiQhFpT9OmyD3ii3vtBK6vrrUmHRB6IB8-4nWjXtW3eXEZ_p1z9SxuyZ90T1ZDfsj3qvu07UVULw_GPsPHiBCZSTUUaWb1RkXNDaY3RcpFcqKEPpoxoUbXIJ3KYI1Kxj5fKCJ9M7IjZ8IhoNwaAdwPTjy4YFEr5s_uOopYV9-3NNQVB8E1ne1Te-xFhIfbbPitP5X2lQHW2vo1y7jm1Be0kRFQ2e3uLOO2Vvv5avPMzjw33GETx"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- SideNavBar Shell -->
+    <aside
+      class="fixed left-0 top-0 hidden lg:flex flex-col h-full w-64 p-4 gap-2 bg-white border-r border-[#E0EAE7] pt-20"
+    >
+      <div class="mb-6 px-4">
+        <h2 class="text-xl font-black text-[#007A5E]">Eximora</h2>
+        <p class="text-xs text-slate-500 font-medium uppercase tracking-widest">
+          Global Trade Academy
+        </p>
+      </div>
+      <nav class="flex flex-col gap-1">
+        <a
+          class="flex items-center gap-3 bg-[#E0EAE7]/50 text-[#007A5E] font-bold rounded-lg px-4 py-3 translate-x-1 duration-200"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="dashboard"
+            >dashboard</span
+          >
+          <span class="text-sm">Dashboard</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="analytics"
+            >analytics</span
+          >
+          <span class="text-sm">Simulasi</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="menu_book"
+            >menu_book</span
+          >
+          <span class="text-sm">Modul</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="play_circle"
+            >play_circle</span
+          >
+          <span class="text-sm">Video Pembelajaran</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="quiz">quiz</span>
+          <span class="text-sm">Latihan Soal</span>
+        </a>
+        <hr class="my-4 border-[#E0EAE7]" />
+        <a
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="help">help</span>
+          <span class="text-sm">FAQ</span>
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="settings"
+            >settings</span
+          >
+          <span class="text-sm">Pengaturan</span>
+        </a>
+      </nav>
+    </aside>
+    <!-- Main Content Canvas -->
+    <main class="lg:ml-64 pt-24 pb-16 px-8 max-w-[1280px]">
+      <!-- Welcome Hero Section (Asymmetric) -->
+      <section class="mb-stack-xl flex flex-col md:flex-row gap-gutter">
+        <div
+          class="flex-grow p-stack-lg rounded-xl bg-white border border-[#E0EAE7] relative overflow-hidden"
+        >
+          <div class="relative z-10">
+            <h1 class="font-h1 text-h1 text-on-surface mb-stack-sm">
+              Selamat datang kembali, Marcus.
+            </h1>
+            <p class="font-body-lg text-body-lg text-tertiary max-w-2xl">
+              Anda telah menyelesaikan
+              <span class="font-bold text-primary">64%</span> dari kursus
+              <span class="italic"
+                >Logistik &amp; Rantai Pasokan Internasional</span
+              >. Sedikit lagi untuk mencapai sertifikasi kompetensi.
+            </p>
+            <div
+              class="mt-stack-lg w-full bg-surface-container-low h-3 rounded-full overflow-hidden"
+            >
+              <div class="bg-primary h-full w-[64%] rounded-full"></div>
+            </div>
+          </div>
+          <!-- Decorative element -->
+          <div
+            class="absolute -right-12 -top-12 w-64 h-64 bg-secondary-container/20 rounded-full blur-3xl"
+          ></div>
+        </div>
+        <div
+          class="w-full md:w-[320px] bg-primary-container p-stack-lg rounded-xl flex flex-col justify-between text-white shadow-sm"
+        >
+          <div>
+            <h3 class="font-h3 text-h3 mb-stack-sm">Target Pekan Ini</h3>
+            <p class="font-body-sm text-body-sm opacity-90">
+              Selesaikan Modul Hukum Transportasi untuk membuka simulasi ekspor
+              regional.
+            </p>
+          </div>
+          <div class="mt-stack-md flex items-center gap-2">
+            <span class="material-symbols-outlined text-[32px]"
+              >emoji_events</span
+            >
+            <span class="font-label-md text-label-md">1.200 XP tersisa</span>
+          </div>
+        </div>
+      </section>
+      <!-- Bento Grid Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+        <!-- Left Column: Active & Recommended (8 cols) -->
+        <div class="md:col-span-8 flex flex-col gap-gutter">
+          <!-- Active Course Card -->
+          <div
+            class="bg-white border border-[#E0EAE7] rounded-xl p-stack-lg flex gap-stack-lg items-center group cursor-pointer hover:shadow-lg transition-all duration-300"
+          >
+            <div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+              <img
+                class="w-full h-full object-cover"
+                data-alt="close-up of industrial shipping containers stacked neatly in a port with sharp lines and blue steel texture"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrBtItPPefg6w88c6sZO1B9J5G4lQapML4TKvx6WArsE4Dq3V0DPJ09lkIEVGwDE8lKwkQKJXkySy5R0XzeJf3i2_gQCQ5oN_N9arvan_Rof3CAtjvI8JuokiFXKDuwpKSBr5LbJofgEg2sXRIWtSvlYl4CkltmJmMa8ilwUCIeGXDcbGtfgdUamVtvICXX-wMwTdnX3b63aTttvkCzfjyopdTrTj-bnF55HaEdvYHEjo94qOobJUmkAsg5W3hHFSB0rSCLGFWzjkU"
+              />
+            </div>
+            <div class="flex-grow">
+              <span
+                class="text-xs font-bold uppercase tracking-widest text-primary mb-1 block"
+                >Kursus Aktif</span
+              >
+              <h2
+                class="font-h2 text-h2 text-on-surface mb-stack-xs group-hover:text-primary transition-colors"
+              >
+                Dokumentasi Ekspor &amp; Kepatuhan
+              </h2>
+              <div class="flex items-center gap-4 text-tertiary">
+                <span
+                  class="flex items-center gap-1 font-label-sm text-label-sm"
+                >
+                  <span class="material-symbols-outlined text-[16px]"
+                    >schedule</span
+                  >
+                  12 Modul tersisa
+                </span>
+                <span
+                  class="flex items-center gap-1 font-label-sm text-label-sm"
+                >
+                  <span
+                    class="material-symbols-outlined text-[16px]"
+                    style="font-variation-settings: &quot;FILL&quot; 1"
+                    >star</span
+                  >
+                  Tingkat Lanjut
+                </span>
+              </div>
+            </div>
+            <span
+              class="material-symbols-outlined text-primary text-[32px] group-hover:translate-x-2 transition-transform"
+              >arrow_forward</span
+            >
+          </div>
+          <!-- Recommended Modules Header -->
+          <div class="flex items-center justify-between mt-stack-sm">
+            <h3 class="font-h3 text-h3 text-on-surface">
+              Modul yang Direkomendasikan
+            </h3>
+            <a
+              class="text-primary font-label-md text-label-md flex items-center gap-1 hover:underline"
+              href="#"
+            >
+              Lihat Semua
+              <span class="material-symbols-outlined text-[14px]"
+                >open_in_new</span
+              >
+            </a>
+          </div>
+          <!-- Recommended Modules Cards (3-Column Grid) -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-stack-lg">
+            <!-- Module 1 -->
+            <div
+              class="bg-white border border-[#E0EAE7] rounded-xl p-stack-md hover:border-primary/50 transition-all cursor-pointer"
+            >
+              <div
+                class="bg-surface-container-low h-32 rounded-lg mb-stack-md flex items-center justify-center overflow-hidden"
+              >
+                <img
+                  class="w-full h-full object-cover"
+                  data-alt="wide shot of a modern automated warehouse with robotics and organized shelving in a clean tech aesthetic"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuD33DoFqO_-uzV22F550n5DcrE4w5P_MXJZRB2dSGC1IPwWy07NPOxVS_MGgGbhIl4jsFLq8oi6TQvODJLO6gf6fRHVx2fbYJvk-iZ3-DjFeOEmGRm-D1eiHEVueApnlxgO7hRG7lZHsPY72rR9EOIshV0_4KrUdJVj4E_UvnI6CpDWuWcfLBV9PZfn9eUyxthkqpd48hw3Uu_qqiq90lKIwvL_dCkyrCdT7Gm0-TvGjcnPwZY7MhxRcpZ7spwlyT9rMAQelHUsk6-c"
+                />
+              </div>
+              <h4
+                class="font-label-md text-label-md text-on-surface mb-stack-xs leading-tight"
+              >
+                Hukum Transportasi Multimoda
+              </h4>
+              <div class="flex items-center gap-1">
+                <span
+                  class="px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded text-[10px] font-bold uppercase tracking-tighter"
+                  >Regulasi</span
+                >
+              </div>
+            </div>
+            <!-- Module 2 -->
+            <div
+              class="bg-white border border-[#E0EAE7] rounded-xl p-stack-md hover:border-primary/50 transition-all cursor-pointer"
+            >
+              <div
+                class="bg-surface-container-low h-32 rounded-lg mb-stack-md flex items-center justify-center overflow-hidden"
+              >
+                <img
+                  class="w-full h-full object-cover"
+                  data-alt="close-up of a financial document with a signature and wax seal, luxury stationery feel with soft natural lighting"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG0Gqc7e6ZL56NWdreeS_2GGHGBVwzb8OQtDC3lYieBEp1d0MYHWgqaceddK2rhsVsjqFckn9pienqw2Zj4XOT-Qd3NsQLyuFdZ9mzic_fXbInuDzCx-syJWXCAzTb7sUX3KdZIDhL5Yp_W-iCtUD7r3cKcyodw8nfM89-IpEBd9whqPI652f1HJzPmRbbjDE0YpPmMXx6bwf5y215Q1HlqhbKzxhBGyftyCHqOfasRIhmi8L3Kz86F2QksUVhdRCpMfvdaI8rPPCt"
+                />
+              </div>
+              <h4
+                class="font-label-md text-label-md text-on-surface mb-stack-xs leading-tight"
+              >
+                Letter of Credit Lanjutan
+              </h4>
+              <div class="flex items-center gap-1">
+                <span
+                  class="px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded text-[10px] font-bold uppercase tracking-tighter"
+                  >Finansial</span
+                >
+              </div>
+            </div>
+            <!-- Module 3 -->
+            <div
+              class="bg-white border border-[#E0EAE7] rounded-xl p-stack-md hover:border-primary/50 transition-all cursor-pointer"
+            >
+              <div
+                class="bg-surface-container-low h-32 rounded-lg mb-stack-md flex items-center justify-center overflow-hidden"
+              >
+                <img
+                  class="w-full h-full object-cover"
+                  data-alt="person working on a computer showing complex data spreadsheets and classification codes in a bright modern office"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMvw6hK5dDLWDolofIhy95NJX2RqEOUnLU6gMXPWRiqUCTEPgnhH6z-7QFj5nPMNoPTfGoLA_JU5_c9mz1ljK5_DslFj4R-M5Mah-gPNcFIuV-vkE7R5mhhBXAmc8Ttx3TxJDOlcKaS7ZcQI4HVBX0Qn55WOmOYXe32V09DEBI-vFeJW35cE9n4KhKlNtiahsZw0stry5QMjF7gYoHKajy-Hn2Mx31bXl28XIJpZ8NtoVw_mZv_5hA6bu1C7uH8dGiy_BLdzgxs5EH"
+                />
+              </div>
+              <h4
+                class="font-label-md text-label-md text-on-surface mb-stack-xs leading-tight"
+              >
+                Klasifikasi Kode HS
+              </h4>
+              <div class="flex items-center gap-1">
+                <span
+                  class="px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded text-[10px] font-bold uppercase tracking-tighter"
+                  >Klasifikasi</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Right Column: Arena & Activity (4 cols) -->
+        <div class="md:col-span-4 flex flex-col gap-gutter">
+          <!-- Arena Simulation Card -->
+          <div
+            class="bg-white border-2 border-primary rounded-xl overflow-hidden shadow-sm"
+          >
+            <div
+              class="h-40 bg-primary relative flex items-end p-stack-lg overflow-hidden"
+            >
+              <img
+                class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-multiply"
+                data-alt="two professionals shaking hands over a large map of the world in a high-rise office at sunset"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW4UjWJyufEMAJyoJbt7ZmFIij0YsXW4mJzIOlkLLyx0b4t2RRywCnPk43Mr2lajwl9hrH1tcOEjWQ-MT69dpL2C29xbkdPM5ETipEPReD7JHZOq5oCyUZLIyK0b4Kbr4OsyWOJbi3NPsCLv-REIMhQNDkX-Q1puh_Utt_YNNxyO51Ang80Di_j77pdSnIRc4O9aInnvKfMrFmSlwR_uIEHUyNzMPCRn0sZ_IPGVk9dAxe-NB9FMN6VuFCh4WeX8OpoQJSrNXofQHC"
+              />
+              <h2 class="relative z-10 text-h2 font-h2 text-white">
+                Siap untuk Arena?
+              </h2>
+            </div>
+            <div class="p-stack-lg">
+              <p
+                class="font-body-sm text-body-sm text-tertiary mb-stack-lg leading-relaxed"
+              >
+                Uji pengetahuan Anda dalam simulasi perdagangan nyata. Hadapi
+                tantangan logistik, negosiasi kontrak, dan manajemen risiko
+                global.
+              </p>
+              <button
+                class="w-full py-3 bg-primary text-white rounded-lg font-label-md text-label-md font-bold flex items-center justify-center gap-2 hover:bg-on-primary-fixed-variant transition-colors"
+              onclick="window.location.href='./sim-export.html';">
+                <span
+                  class="material-symbols-outlined"
+                  data-icon="sports_kabaddi"
+                  >sports_kabaddi</span
+                >
+                Mulai Simulasi
+              </button>
+            </div>
+          </div>
+          <!-- Recent Activity/News -->
+          <div class="bg-white border border-[#E0EAE7] rounded-xl p-stack-lg">
+            <h3 class="font-h3 text-h3 text-on-surface mb-stack-md">
+              Aktivitas Terbaru
+            </h3>
+            <div class="space-y-stack-md">
+              <div
+                class="flex gap-stack-md pb-stack-md border-b border-surface-container"
+              >
+                <div
+                  class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center flex-shrink-0"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary text-[20px]"
+                    >assignment_turned_in</span
+                  >
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-on-surface">Kuis Selesai</p>
+                  <p class="text-xs text-tertiary">
+                    Incoterms 2020: Anda mendapat skor 95%
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex gap-stack-md pb-stack-md border-b border-surface-container"
+              >
+                <div
+                  class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center flex-shrink-0"
+                >
+                  <span
+                    class="material-symbols-outlined text-tertiary text-[20px]"
+                    >forum</span
+                  >
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-on-surface">Diskusi Baru</p>
+                  <p class="text-xs text-tertiary">
+                    Mentor membalas pertanyaan Anda...
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-stack-md">
+                <div
+                  class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center flex-shrink-0"
+                >
+                  <span
+                    class="material-symbols-outlined text-tertiary text-[20px]"
+                    >lock_open</span
+                  >
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-on-surface">Modul Terbuka</p>
+                  <p class="text-xs text-tertiary">
+                    Sertifikasi Bill of Lading Dasar
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- BottomNavBar (Mobile Only) -->
+    <nav
+      class="md:hidden fixed bottom-0 left-0 w-full bg-white border-t border-[#E0EAE7] flex justify-around items-center py-3 z-50"
+    >
+      <a class="flex flex-col items-center gap-1 text-primary" href="#">
+        <span
+          class="material-symbols-outlined"
+          data-icon="dashboard"
+          data-weight="fill"
+          >dashboard</span
+        >
+        <span class="text-[10px] font-bold">Dashboard</span>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+        <span class="material-symbols-outlined" data-icon="analytics"
+          >analytics</span
+        >
+        <span class="text-[10px]">Simulasi</span>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+        <span class="material-symbols-outlined" data-icon="menu_book"
+          >menu_book</span
+        >
+        <span class="text-[10px]">Modul</span>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+        <span class="material-symbols-outlined" data-icon="person">person</span>
+        <span class="text-[10px]">Profil</span>
+      </a>
+    </nav>
+  </body>
+</html>

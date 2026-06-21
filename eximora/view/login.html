@@ -1,0 +1,353 @@
+<!doctype html>
+
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#95f5d2",
+              "on-secondary-container": "#306f5c",
+              "surface-container": "#eeeeec",
+              outline: "#6e7a74",
+              "surface-container-high": "#e8e8e6",
+              "secondary-container": "#aff0d8",
+              "on-primary-fixed": "#002117",
+              tertiary: "#4c5553",
+              "secondary-fixed-dim": "#93d3bd",
+              "on-error": "#ffffff",
+              error: "#ba1a1a",
+              secondary: "#296956",
+              "on-primary-container": "#a4ffdd",
+              "inverse-surface": "#2f3130",
+              "tertiary-container": "#646d6b",
+              "surface-tint": "#006c53",
+              "surface-bright": "#f9f9f7",
+              "inverse-primary": "#79d8b7",
+              "outline-variant": "#bdc9c2",
+              "on-primary-fixed-variant": "#00513d",
+              "surface-dim": "#dadad8",
+              "secondary-fixed": "#aff0d8",
+              "on-secondary-fixed-variant": "#07513f",
+              primary: "#005f48",
+              "on-tertiary": "#ffffff",
+              "on-surface-variant": "#3e4944",
+              "tertiary-fixed": "#dbe4e2",
+              "surface-container-low": "#f4f4f1",
+              "on-surface": "#1a1c1b",
+              background: "#f9f9f7",
+              "on-background": "#1a1c1b",
+              "tertiary-fixed-dim": "#bfc8c6",
+              "primary-fixed-dim": "#79d8b7",
+              "on-tertiary-container": "#e6efec",
+              "surface-variant": "#e2e3e0",
+              "surface-container-highest": "#e2e3e0",
+              surface: "#f9f9f7",
+              "inverse-on-surface": "#f1f1ef",
+              "on-primary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "primary-container": "#007a5e",
+              "error-container": "#ffdad6",
+              "on-secondary-fixed": "#002118",
+              "on-tertiary-fixed-variant": "#404947",
+              "surface-container-lowest": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-tertiary-fixed": "#151d1c",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            spacing: {
+              "stack-sm": "8px",
+              "stack-lg": "24px",
+              gutter: "24px",
+              "stack-xs": "4px",
+              margin: "32px",
+              "stack-xl": "48px",
+              "stack-md": "16px",
+              "container-max": "1280px",
+              unit: "8px",
+            },
+            fontFamily: {
+              "label-md": ["Lexend"],
+              "body-sm": ["Lexend"],
+              "label-sm": ["Lexend"],
+              h2: ["Lexend"],
+              display: ["Lexend"],
+              "body-lg": ["Lexend"],
+              h3: ["Lexend"],
+              "body-md": ["Lexend"],
+              h1: ["Lexend"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        font-family: "Lexend", sans-serif;
+      }
+      .auth-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        min-height: 100vh;
+      }
+      @media (max-width: 1024px) {
+        .auth-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-section {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-surface text-on-surface">
+    <main class="auth-grid">
+      <!-- Visual Section (Left) -->
+      <section
+        class="hero-section relative bg-primary overflow-hidden flex flex-col justify-between p-stack-xl"
+      >
+        <!-- Background Decoration -->
+        <div class="absolute inset-0 opacity-10">
+          <img
+            alt="Global Trade Logistics"
+            class="w-full h-full object-cover grayscale"
+            data-alt="Wide shot of a modern automated container port with giant cranes and organized cargo ships under a clean morning sky"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiSEhRKde4iQOJUKZ1jqIaqKackpICvTTvEKSWh68Ol0V83k93JDMPJtipT3Q0FWyHDXUJsZXMk2hvGbw_lDEkUnU8D7AhDVsNepj8sLVQq26cW1v6O-z05TWe94tb_iKPZm0-jahnfJi-wgOdyhJOQQI4PsfQi19wM3zXbr5bScV_lwfNe5I1ZK17dGT0z2T5oe8smu3Rq8EzEEQcEv3inJA27GxmqfdMX_n6aSUzVPhKC8aKCY3sErHqihQDsUaTsmBpxULpKDzM"
+          />
+        </div>
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-primary-container/80 to-primary/95"
+        ></div>
+        <div class="relative z-10">
+          <div class="flex items-center gap-stack-sm mb-stack-xl">
+            <span
+              class="text-on-primary-container font-h1 text-h1 tracking-tight"
+              >Eximora</span
+            >
+          </div>
+          <div class="max-w-md">
+            <h2 class="text-on-primary font-display text-display mb-stack-md">
+              Global Trade Academy
+            </h2>
+            <p class="text-on-primary/80 font-body-lg text-body-lg">
+              Platform edukasi ekspor-impor nomor satu untuk profesional masa
+              depan.
+            </p>
+          </div>
+        </div>
+        <!-- Bento-style Info Cards -->
+        <div class="relative z-10 grid grid-cols-2 gap-stack-md">
+          <div
+            class="bg-white/10 backdrop-blur-md border border-white/20 p-stack-md rounded-xl"
+          >
+            <span
+              class="material-symbols-outlined text-on-primary mb-stack-xs"
+              data-icon="school"
+              >school</span
+            >
+            <p class="text-on-primary font-label-md text-label-md">
+              150+ Modul
+            </p>
+            <p class="text-on-primary/60 font-body-sm text-body-sm">
+              Kurikulum industri terkini
+            </p>
+          </div>
+          <div
+            class="bg-white/10 backdrop-blur-md border border-white/20 p-stack-md rounded-xl"
+          >
+            <span
+              class="material-symbols-outlined text-on-primary mb-stack-xs"
+              data-icon="language"
+              >language</span
+            >
+            <p class="text-on-primary font-label-md text-label-md">
+              Akses Global
+            </p>
+            <p class="text-on-primary/60 font-body-sm text-body-sm">
+              Data pasar waktu nyata
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Form Section (Right) -->
+      <section
+        class="flex items-center justify-center p-gutter bg-surface-container-lowest"
+      >
+        <div class="w-full max-w-[440px]">
+          <!-- Header -->
+          <div class="mb-stack-xl text-center lg:text-left">
+            <h1 class="font-h1 text-h1 text-on-surface mb-stack-xs">
+              Selamat Datang Kembali
+            </h1>
+            <p class="font-body-md text-body-md text-outline">
+              Kelola transaksi dan pembelajaran perdagangan internasional Anda.
+            </p>
+          </div>
+          <!-- Main Login Form -->
+          <form class="space-y-stack-lg">
+            <div class="space-y-stack-sm">
+              <label
+                class="block font-label-md text-label-md text-on-surface"
+                for="email"
+                >Email Profesional</label
+              >
+              <div class="relative">
+                <span
+                  class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline"
+                  data-icon="mail"
+                  >mail</span
+                >
+                <input
+                  class="w-full pl-12 pr-4 py-3 bg-surface-container-low border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all font-body-md text-body-md"
+                  id="email"
+                  placeholder="nama@perusahaan.com"
+                  type="email"
+                />
+              </div>
+            </div>
+            <div class="space-y-stack-sm">
+              <div class="flex justify-between items-center">
+                <label
+                  class="block font-label-md text-label-md text-on-surface"
+                  for="password"
+                  >Kata Sandi</label
+                >
+                <a
+                  class="font-label-sm text-label-sm text-primary hover:underline"
+                  href="#"
+                  >Lupa kata sandi?</a
+                >
+              </div>
+              <div class="relative">
+                <span
+                  class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline"
+                  data-icon="lock"
+                  >lock</span
+                >
+                <input
+                  class="w-full pl-12 pr-12 py-3 bg-surface-container-low border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all font-body-md text-body-md"
+                  id="password"
+                  placeholder="••••••••"
+                  type="password"
+                />
+                <button
+                  class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface"
+                  type="button"
+                >
+                  <span class="material-symbols-outlined" data-icon="visibility"
+                    >visibility</span
+                  >
+                </button>
+              </div>
+            </div>
+            <div class="flex items-center gap-stack-sm">
+              <input
+                class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary"
+                id="remember"
+                type="checkbox"
+              />
+              <label
+                class="font-body-sm text-body-sm text-on-surface-variant select-none"
+                for="remember"
+                >Tetap masuk selama 30 hari</label
+              >
+            </div>
+            <button
+              class="w-full py-4 bg-primary-container text-on-primary font-label-md text-label-md rounded-xl hover:bg-primary transition-colors shadow-lg shadow-primary-container/10"
+              type="submit"
+            >
+              Masuk ke Portal
+            </button>
+          </form>
+          <!-- Divider -->
+          <div class="relative my-stack-xl">
+            <div class="absolute inset-0 flex items-center">
+              <span class="w-full border-t border-outline-variant"></span>
+            </div>
+            <div class="relative flex justify-center text-xs">
+              <span
+                class="bg-surface-container-lowest px-stack-sm text-outline font-label-sm"
+                >Atau lanjut dengan</span
+              >
+            </div>
+          </div>
+          <!-- Social Logins -->
+          <div class="grid grid-cols-2 gap-stack-md">
+            <button
+              class="flex items-center justify-center gap-stack-sm py-3 px-4 border border-outline-variant rounded-xl hover:bg-surface-container-low transition-colors"
+            >
+              <img
+                alt="Google"
+                class="w-5 h-5"
+                data-alt="Google colorful brand logo icon"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFGEeuT1jI2yiKM8jrIZQATkFihj_3aW8FU0Sx3t3b23mYOp1MezIs_ngZK1xrTMIKqMmalBIsNB4S2sUE_Yn59cYhywCqtSDRmGUGVE1sK_WdKqhHTHsITVDRw842tRsMXBvUm2pvfT7-EQ8ObaOI2ptZpLqis3r1IhwMl43Blv6a0xdeSyLmU-GFR8_3aotjVaer-0y-3EZmLq-NS4xU7Z9RxwrMf_NZtsoREBx866kCberHM8opnQOvGVGxtW1bMYJxfiGnLVhi"
+              />
+              <span class="font-label-md text-label-md text-on-surface"
+                >Google</span
+              >
+            </button>
+            <button
+              class="flex items-center justify-center gap-stack-sm py-3 px-4 border border-outline-variant rounded-xl hover:bg-surface-container-low transition-colors"
+            >
+              <img
+                alt="LinkedIn"
+                class="w-5 h-5"
+                data-alt="LinkedIn blue brand logo icon"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVBgWIs7KCvgSkRVxbj0RC4mRPpgTyQqwQJLY46IKssers1DJvt12LbqvOKsTzdu9xecnBki9vl25DrTZZdh5PlesWu-w0n1ohwFCnPcpdQA3oGwl-6PbyF-BLQOlbc7Jq1r7YPZ1w1LHQ9Le5HkrWRzYokgO_mLxmW__mdCsqnXCF3gTlPyGtGfhDW3lqAt4VVp2uExNWPZBKAlab62iiKjmVT_ZaYH-kJ5oXt5IEEUKo7ml_9CNjaCsW-WIczLy09F_J1EkhKCtX"
+              />
+              <span class="font-label-md text-label-md text-on-surface"
+                >LinkedIn</span
+              >
+            </button>
+          </div>
+          <!-- Footer Link -->
+          <p
+            class="mt-stack-xl text-center font-body-sm text-body-sm text-on-surface-variant"
+          >
+            Belum memiliki akun?
+            <a
+              class="text-primary font-label-sm text-label-sm hover:underline ml-1"
+              href="#"
+              >Daftar sekarang</a
+            >
+          </p>
+        </div>
+      </section>
+    </main>
+    <!-- Support Help FAB -->
+    <div class="fixed bottom-margin right-margin">
+      <button
+        class="w-14 h-14 bg-white border border-outline-variant rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform text-primary"
+      >
+        <span class="material-symbols-outlined" data-icon="support_agent"
+          >support_agent</span
+        >
+      </button>
+    </div>
+  </body>
+</html>

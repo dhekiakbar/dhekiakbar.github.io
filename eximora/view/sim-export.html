@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script async="" src="https://maps.googleapis.com/maps/api/js?loading=async&amp;key=AIzaSyA6myHzS10YXdcazAFalmXvDkrYCp5cLc8&amp;libraries=maps,marker,geometry"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#95f5d2",
+                        "on-secondary-container": "#306f5c",
+                        "surface-container": "#eeeeec",
+                        "outline": "#6e7a74",
+                        "surface-container-high": "#e8e8e6",
+                        "secondary-container": "#aff0d8",
+                        "on-primary-fixed": "#002117",
+                        "tertiary": "#4c5553",
+                        "secondary-fixed-dim": "#93d3bd",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "secondary": "#296956",
+                        "on-primary-container": "#a4ffdd",
+                        "inverse-surface": "#2f3130",
+                        "tertiary-container": "#646d6b",
+                        "surface-tint": "#006c53",
+                        "surface-bright": "#f9f9f7",
+                        "inverse-primary": "#79d8b7",
+                        "outline-variant": "#bdc9c2",
+                        "on-primary-fixed-variant": "#00513d",
+                        "surface-dim": "#dadad8",
+                        "secondary-fixed": "#aff0d8",
+                        "on-secondary-fixed-variant": "#07513f",
+                        "primary": "#005f48",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#3e4944",
+                        "tertiary-fixed": "#dbe4e2",
+                        "surface-container-low": "#f4f4f1",
+                        "on-surface": "#1a1c1b",
+                        "background": "#f9f9f7",
+                        "on-background": "#1a1c1b",
+                        "tertiary-fixed-dim": "#bfc8c6",
+                        "primary-fixed-dim": "#79d8b7",
+                        "on-tertiary-container": "#e6efec",
+                        "surface-variant": "#e2e3e0",
+                        "surface-container-highest": "#e2e3e0",
+                        "surface": "#f9f9f7",
+                        "inverse-on-surface": "#f1f1ef",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#007a5e",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#002118",
+                        "on-tertiary-fixed-variant": "#404947",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#151d1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "stack-lg": "24px",
+                        "gutter": "24px",
+                        "stack-xs": "4px",
+                        "margin": "32px",
+                        "stack-xl": "48px",
+                        "stack-md": "16px",
+                        "container-max": "1280px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Lexend"],
+                        "body-sm": ["Lexend"],
+                        "label-sm": ["Lexend"],
+                        "h2": ["Lexend"],
+                        "display": ["Lexend"],
+                        "body-lg": ["Lexend"],
+                        "h3": ["Lexend"],
+                        "body-md": ["Lexend"],
+                        "h1": ["Lexend"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "600"}],
+                        "h2": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h3": ["20px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h1": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-layer {
+            background: linear-gradient(180deg, rgba(224, 234, 231, 0.3) 0%, rgba(224, 234, 231, 0) 100%);
+        }
+        .ambient-shadow {
+            box-shadow: 0 20px 40px -15px rgba(0, 122, 94, 0.15);
+        }
+        #export-route-map {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-white sticky top-0 z-50 border-b border-[#E0EAE7] h-16 flex items-center">
+<div class="flex justify-between items-center w-full px-8 max-w-[1280px] mx-auto">
+<div class="flex items-center gap-stack-lg">
+<span class="text-2xl font-bold text-[#007A5E] tracking-tight font-lexend">Eximora</span>
+<nav class="hidden md:flex gap-stack-lg ml-8">
+<a class="text-slate-600 font-medium font-lexend text-sm hover:text-[#004D3C] transition-colors" href="#">Sumber Daya</a>
+<a class="text-slate-600 font-medium font-lexend text-sm hover:text-[#004D3C] transition-colors" href="#">Data Pasar</a>
+</nav>
+</div>
+<div class="flex items-center gap-stack-md">
+<button class="px-stack-lg py-2 bg-primary-container text-white rounded-xl font-lexend text-sm font-medium scale-100 active:scale-95 transition-transform duration-150">
+                Simulasi Baru
+            </button>
+</div>
+</div>
+</header>
+<div class="flex max-w-[1280px] mx-auto min-h-[calc(100vh-64px)]">
+<!-- SideNavBar -->
+<aside class="w-64 border-r border-[#E0EAE7] p-4 flex flex-col gap-2 hidden lg:flex bg-white">
+<div class="mb-stack-lg px-4">
+<p class="font-lexend text-sm font-black text-[#007A5E]">Global Trade Academy</p>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all rounded-lg font-lexend text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 bg-[#E0EAE7]/50 text-[#007A5E] font-bold rounded-lg px-4 py-3 font-lexend text-sm translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics" style="font-variation-settings: 'FILL' 1;">analytics</span>
+                Simulasi
+            </a>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all rounded-lg font-lexend text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+                Modul
+            </a>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all rounded-lg font-lexend text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="play_circle">play_circle</span>
+                Video Pembelajaran
+            </a>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all rounded-lg font-lexend text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="quiz">quiz</span>
+                Latihan Soal
+            </a>
+<div class="pt-stack-xl mt-stack-xl border-t border-[#E0EAE7]">
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all rounded-lg font-lexend text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                    FAQ
+                </a>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-[#E0EAE7]/30 hover:text-[#007A5E] transition-all rounded-lg font-lexend text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    Pengaturan
+                </a>
+</div>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-8 lg:p-12 overflow-y-auto">
+<!-- Header Section -->
+<section class="mb-stack-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-stack-lg">
+<div>
+<div class="flex items-center gap-stack-sm mb-stack-xs">
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-label-sm font-label-sm">Simulasi Langsung</span>
+<span class="text-outline text-label-sm font-label-sm uppercase tracking-widest">BATCH ID: #EX-7729</span>
+</div>
+<h1 class="font-h1 text-h1 text-on-surface mb-stack-sm">Ekspor Mesin Berat ke Jerman</h1>
+<p class="text-tertiary font-body-md max-w-2xl">Mempelajari prosedur logistik dan kepatuhan hukum pengiriman alat industri berat melintasi perbatasan internasional.</p>
+</div>
+<div class="flex items-center gap-stack-md bg-white p-4 rounded-xl border border-[#E0EAE7] ambient-shadow">
+<div class="text-right">
+<p class="text-label-sm font-label-sm text-outline">Estimasi Waktu Tunggu</p>
+<p class="text-h3 font-h3 text-primary">14 Hari Kerja</p>
+</div>
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="schedule">schedule</span>
+</div>
+</div>
+</section>
+<!-- Progress & Metrics Grid (Bento Style) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-stack-lg mb-stack-xl">
+<!-- Accuracy Card -->
+<div class="bg-white p-stack-lg rounded-xl border border-[#E0EAE7] flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-secondary mb-stack-sm" data-icon="target">target</span>
+<p class="text-label-md font-label-md text-outline">Akurasi saat ini</p>
+</div>
+<div class="mt-stack-md">
+<h2 class="text-display font-display text-on-surface">94%</h2>
+<div class="w-full bg-surface-container h-2 rounded-full mt-2">
+<div class="bg-primary h-2 rounded-full w-[94%]"></div>
+</div>
+</div>
+</div>
+<!-- Compliance Score -->
+<div class="bg-white p-stack-lg rounded-xl border border-[#E0EAE7] flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-secondary mb-stack-sm" data-icon="verified_user">verified_user</span>
+<p class="text-label-md font-label-md text-outline">Skor Kepatuhan</p>
+</div>
+<div class="mt-stack-md">
+<h2 class="text-display font-display text-on-surface">A+</h2>
+<p class="text-label-sm font-label-sm text-[#007A5E] mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+                        Melebihi rata-rata industri
+                    </p>
+</div>
+</div>
+<!-- Vessel Status Card -->
+<div class="relative overflow-hidden bg-on-background p-stack-lg rounded-xl border border-outline/20 text-white flex flex-col justify-between">
+<img alt="Container Ship" class="absolute inset-0 w-full h-full object-cover opacity-30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzCx52JT30Ou6InbCtJwBbdVDs0l3XElhIp-yW9vCRQO1oRmQwC9g6thDHoa2XRVemA-AsnHSCB08kBqPZf-LsSvptjqh9UXF5onW-ENdhYnNab4PaH6XqrKDlNlRmYJqKUBpfMH-aim-hLWqqHU4lWpy_UYnfikJZUI7Brxsz0qpsYB8CURsoObaQsVTGWuGOAmWMYpN7yNMrMszVP0WsqLRCN2ZclfphEygJYszm-VwC673z-b0Ndtpv68dJx04-cSQIQE7Hq2lc"/>
+<div class="relative z-10">
+<p class="text-label-md font-label-md text-secondary-fixed opacity-80">Status Kapal</p>
+<h3 class="text-h3 font-h3 mt-1">Dalam Perjalanan</h3>
+</div>
+<div class="relative z-10">
+<p class="text-label-sm font-label-sm flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+                        Terakhir dilihat: Port of Hamburg
+                    </p>
+</div>
+</div>
+</section>
+<!-- Main Interactive Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-stack-lg">
+<!-- Task Column -->
+<div class="lg:col-span-8 space-y-stack-lg">
+<!-- Interactive Map Section -->
+<div class="bg-white rounded-xl border border-[#E0EAE7] overflow-hidden">
+<div class="bg-[#E0EAE7]/30 px-stack-lg py-stack-md border-b border-[#E0EAE7] flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+<div>
+<p class="text-label-sm font-label-sm text-primary uppercase tracking-widest">Rute Pengiriman</p>
+<h2 class="text-h2 font-h2 text-on-surface">Visualisasi Jalur Logistik</h2>
+</div>
+<div class="flex gap-3">
+<div class="bg-white border border-[#E0EAE7] rounded-xl px-3 py-2 shadow-sm min-w-[160px]">
+<label class="block text-[10px] uppercase font-bold text-primary mb-0.5">Asal</label>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xs" data-icon="anchor">anchor</span>
+<select id="port-origin-select" class="text-xs font-semibold border-none focus:ring-0 p-0 bg-transparent w-full cursor-pointer">
+<option value="tanjungPriok" selected="">Tanjung Priok, ID</option>
+<option value="singapore">Singapura, SG</option>
+<option value="surabaya">Tanjung Perak, ID</option>
+</select>
+</div>
+</div>
+<div class="bg-white border border-[#E0EAE7] rounded-xl px-3 py-2 shadow-sm min-w-[160px]">
+<label class="block text-[10px] uppercase font-bold text-secondary mb-0.5">Tujuan</label>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-xs" data-icon="location_on">location_on</span>
+<select id="port-destination-select" class="text-xs font-semibold border-none focus:ring-0 p-0 bg-transparent w-full cursor-pointer">
+<option value="hamburg" selected="">Hamburg, DE</option>
+<option value="rotterdam">Rotterdam, NL</option>
+<option value="yokohama">Yokohama, JP</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<div id="export-route-map" class="w-full h-[450px] rounded-b-xl overflow-hidden"></div>
+<!-- Map Legend Overlays -->
+<div class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm p-3 rounded-lg border border-[#E0EAE7] shadow-lg flex flex-col gap-2 text-xs font-medium pointer-events-none">
+<div class="flex items-center gap-2">
+<div class="w-3 h-0.5 bg-[#007A5E]"></div>
+<span>Rute Jalur Laut</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span>Simpul Pelabuhan</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-xl border border-[#E0EAE7] overflow-hidden">
+<div class="bg-[#E0EAE7]/30 px-stack-lg py-stack-md border-b border-[#E0EAE7]">
+<p class="text-label-sm font-label-sm text-primary uppercase tracking-widest">Tahap Aktif</p>
+<h2 class="text-h2 font-h2 text-on-surface">Langkah 3: Verifikasi Faktur Komersial</h2>
+</div>
+<div class="p-stack-lg">
+<p class="text-body-md text-tertiary mb-stack-lg">Silakan periksa dokumen di bawah ini untuk memastikan semua entri data sesuai dengan regulasi Uni Eropa (EU).</p>
+<div class="bg-surface-container-low p-stack-xl rounded-lg border border-dashed border-outline-variant flex flex-col items-center justify-center min-h-[300px]">
+<img alt="Invoice Document Preview" class="w-48 h-64 object-cover shadow-lg mb-stack-md rotate-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR7xFC9-uRnU9kQHSKTKbfpY1ehjAY3-YeqipXmdUZnoUHYuAIJxZQxNmPLCUtiKvmqlTrodZUbpNDbdMg8WbOw7rKabPPNIEa4pjqmAI1SAJl0LSDBzczLgtgYtGn2H-gmPuUTwvr5dni-FeulBYOgZidtX8w5cPhM3gQKcaRGPxb_cD4r5wvQdODfNrUhssHNxEPVSt2HCVj3LCSbrARPfBGD1_zBp_-c-jRxHr0NZ3h4zyHQybDSOnrDSIPu115fczhiFJTWqww"/>
+<button class="flex items-center gap-2 text-primary font-label-md hover:underline">
+<span class="material-symbols-outlined" data-icon="zoom_in">zoom_in</span>
+                                Perbesar Dokumen
+                            </button>
+</div>
+</div>
+</div>
+<!-- Checklist -->
+<div class="bg-white p-stack-lg rounded-xl border border-[#E0EAE7]">
+<h3 class="font-h3 text-h3 text-on-surface mb-stack-md">Daftar Periksa Kritis</h3>
+<div class="space-y-stack-sm">
+<label class="flex items-center p-4 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors border border-transparent hover:border-[#E0EAE7]">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="ml-4 font-body-md text-on-surface">Identifikasi Kode HS (Harmonized System)</span>
+</label>
+<label class="flex items-center p-4 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors border border-transparent hover:border-[#E0EAE7]">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="ml-4 font-body-md text-on-surface">Validasi ID PPN (VAT) Penerima di Jerman</span>
+</label>
+<label class="flex items-center p-4 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors border border-transparent hover:border-[#E0EAE7]">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="ml-4 font-body-md text-on-surface">Periksa ulang syarat FOB (Free on Board)</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Sidebar Tips Column -->
+<div class="lg:col-span-4 space-y-stack-lg">
+<div class="bg-[#007A5E] text-white p-stack-lg rounded-xl ambient-shadow">
+<div class="flex items-center gap-2 mb-stack-md">
+<span class="material-symbols-outlined" data-icon="lightbulb" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<h3 class="font-h3 text-h3">Tips Simulasi</h3>
+</div>
+<ul class="space-y-stack-md">
+<li class="text-body-sm flex gap-3">
+<span class="text-primary-fixed-dim font-bold">01</span>
+                            Pastikan deskripsi barang sangat spesifik untuk menghindari penahanan di bea cukai Hamburg.
+                        </li>
+<li class="text-body-sm flex gap-3">
+<span class="text-primary-fixed-dim font-bold">02</span>
+                            Gunakan mata uang Euro (€) sebagai standar transaksi untuk mempermudah verifikasi pajak.
+                        </li>
+<li class="text-body-sm flex gap-3">
+<span class="text-primary-fixed-dim font-bold">03</span>
+                            Kode HS untuk mesin industri biasanya dimulai dengan angka 84. Periksa sub-kategori dengan teliti.
+                        </li>
+</ul>
+<button class="w-full mt-stack-xl py-3 bg-white/10 hover:bg-white/20 border border-white/30 rounded-lg text-white font-label-md transition-colors">
+                        Pelajari Modul Terkait
+                    </button>
+</div>
+<!-- Analysis Summary Card -->
+<div class="bg-white p-stack-lg rounded-xl border border-[#E0EAE7]">
+<h4 class="font-label-md text-label-md text-outline mb-stack-md">Detail Rute</h4>
+<div class="space-y-4">
+<div class="flex justify-between items-center text-sm">
+<span class="text-tertiary">Total Jarak</span>
+<span id="route-distance" class="font-semibold text-on-surface">11,200 Nautical Miles</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-tertiary">Estimasi Waktu</span>
+<span id="route-duration" class="font-semibold text-on-surface">18 Hari</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-tertiary">Transit Utama</span>
+<span id="route-transit" class="font-semibold text-on-surface">Terusan Suez</span>
+</div>
+<div class="pt-4 border-t border-[#E0EAE7]">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-amber-500 text-xl" data-icon="warning">warning</span>
+<div>
+<p class="text-xs font-bold text-on-surface">Potensi Keterlambatan</p>
+<p class="text-[11px] text-tertiary mt-0.5">Kepadatan di Terusan Suez mungkin menambah estimasi 2-3 hari.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Action Bar -->
+<div class="mt-stack-xl flex justify-between items-center pt-stack-lg border-t border-[#E0EAE7]">
+<button class="flex items-center gap-2 text-outline font-label-md hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                Kembali ke Langkah 2
+            </button>
+<button class="px-stack-xl py-3 bg-primary-container text-white rounded-lg font-h3 text-h3 hover:bg-[#004D3C] transition-colors ambient-shadow">
+                Kirim Verifikasi
+            </button>
+</div>
+</main>
+</div>
+
+<script type="module">
+    // ===== Data Pelabuhan =====
+    const PORTS = {
+        tanjungPriok: { lat: -6.1033, lng: 106.8833, label: "Tanjung Priok, ID" },
+        singapore:    { lat: 1.2741,  lng: 103.8014, label: "Singapura, SG" },
+        surabaya:     { lat: -7.1944, lng: 112.7339, label: "Tanjung Perak, ID" },
+        hamburg:      { lat: 53.5511, lng: 9.9937,   label: "Hamburg, DE" },
+        rotterdam:    { lat: 51.9244, lng: 4.4777,   label: "Rotterdam, NL" },
+        yokohama:     { lat: 35.4433, lng: 139.6333, label: "Yokohama, JP" }
+    };
+
+    // Waypoint laut realistis antar wilayah, dipakai untuk membentuk rute melengkung lewat selat/kanal
+    const SEA_WAYPOINTS = {
+        malaccaStrait: { lat: 5.9,  lng: 95.2 },   // Selat Malaka / Sabang
+        guardafui:     { lat: 12.0, lng: 52.0 },   // Tanjung Guardafui
+        babElMandeb:   { lat: 12.8, lng: 43.3 },   // Bab el-Mandeb
+        suezCanal:     { lat: 29.9, lng: 32.5 },   // Terusan Suez
+        gibraltar:     { lat: 36.1, lng: -5.3 },   // Selat Gibraltar
+        englishChannel:{ lat: 50.0, lng: -4.0 }     // Selat Inggris
+    };
+
+    const NAUTICAL_KM_FACTOR = 1.852;
+
+    function haversineNm(a, b) {
+        const R = 6371; // km
+        const toRad = (d) => (d * Math.PI) / 180;
+        const dLat = toRad(b.lat - a.lat);
+        const dLng = toRad(b.lng - a.lng);
+        const lat1 = toRad(a.lat);
+        const lat2 = toRad(b.lat);
+        const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) ** 2;
+        const km = 2 * R * Math.asin(Math.sqrt(h));
+        return km / NAUTICAL_KM_FACTOR;
+    }
+
+    function buildRoutePath(originKey, destKey) {
+        const origin = PORTS[originKey];
+        const dest = PORTS[destKey];
+
+        // Rute Asia Tenggara -> Eropa: lewat Selat Malaka & Terusan Suez
+        const isAsiaToEurope =
+            ["tanjungPriok", "singapore", "surabaya"].includes(originKey) &&
+            ["hamburg", "rotterdam"].includes(destKey);
+
+        // Rute Asia Tenggara -> Asia Timur (mis. Yokohama): jalur langsung lewat Laut China Selatan
+        if (originKey !== destKey && !isAsiaToEurope) {
+            return [origin, dest];
+        }
+
+        if (isAsiaToEurope) {
+            return [
+                origin,
+                SEA_WAYPOINTS.malaccaStrait,
+                SEA_WAYPOINTS.guardafui,
+                SEA_WAYPOINTS.babElMandeb,
+                SEA_WAYPOINTS.suezCanal,
+                SEA_WAYPOINTS.gibraltar,
+                SEA_WAYPOINTS.englishChannel,
+                dest
+            ];
+        }
+
+        return [origin, dest];
+    }
+
+    function routeUsesSuez(path) {
+        return path.some(
+            (p) => p.lat === SEA_WAYPOINTS.suezCanal.lat && p.lng === SEA_WAYPOINTS.suezCanal.lng
+        );
+    }
+
+    function totalDistanceNm(path) {
+        let total = 0;
+        for (let i = 0; i < path.length - 1; i++) {
+            total += haversineNm(path[i], path[i + 1]);
+        }
+        return Math.round(total);
+    }
+
+    function estimateDays(distanceNm) {
+        // Asumsi kecepatan rata-rata kapal kargo: ~20 knot, ditambah waktu bongkar muat pelabuhan
+        const avgSpeedKnots = 20;
+        const sailingHours = distanceNm / avgSpeedKnots;
+        const sailingDays = sailingHours / 24;
+        return Math.round(sailingDays + 2); // +2 hari buffer pelabuhan
+    }
+
+    let map, originMarker, destMarker, routeLine;
+    let originPin, destPin;
+
+    function updateRouteDetailsUI(originKey, destKey, path) {
+        const distance = totalDistanceNm(path);
+        const days = estimateDays(distance);
+        const usesSuez = routeUsesSuez(path);
+
+        const distanceEl = document.getElementById('route-distance');
+        const durationEl = document.getElementById('route-duration');
+        const transitEl = document.getElementById('route-transit');
+
+        if (distanceEl) distanceEl.textContent = `${distance.toLocaleString('id-ID')} Mil Laut`;
+        if (durationEl) durationEl.textContent = `${days} Hari`;
+        if (transitEl) transitEl.textContent = usesSuez ? 'Terusan Suez' : 'Jalur Langsung';
+    }
+
+    async function drawRoute(originKey, destKey) {
+        if (!map) return;
+
+        const origin = PORTS[originKey];
+        const dest = PORTS[destKey];
+        const path = buildRoutePath(originKey, destKey);
+
+        // Bersihkan marker & garis sebelumnya
+        if (originMarker) originMarker.map = null;
+        if (destMarker) destMarker.map = null;
+        if (routeLine) routeLine.setMap(null);
+
+        if (!originPin) {
+            originPin = new google.maps.marker.PinElement({ background: "#007A5E", borderColor: "#ffffff", glyphColor: "#ffffff", scale: 1.2 });
+        }
+        if (!destPin) {
+            destPin = new google.maps.marker.PinElement({ background: "#296956", borderColor: "#ffffff", glyphColor: "#ffffff", scale: 1.2 });
+        }
+
+        originMarker = new google.maps.marker.AdvancedMarkerElement({
+            map,
+            position: origin,
+            content: originPin.element.cloneNode(true),
+            title: `Asal: ${origin.label}`
+        });
+
+        destMarker = new google.maps.marker.AdvancedMarkerElement({
+            map,
+            position: dest,
+            content: destPin.element.cloneNode(true),
+            title: `Tujuan: ${dest.label}`
+        });
+
+        routeLine = new google.maps.Polyline({
+            path,
+            geodesic: true,
+            strokeColor: "#007A5E",
+            strokeOpacity: 0.8,
+            strokeWeight: 4,
+            map
+        });
+
+        const bounds = new google.maps.LatLngBounds();
+        path.forEach((p) => bounds.extend(p));
+        map.fitBounds(bounds, { top: 50, right: 50, bottom: 50, left: 50 });
+
+        updateRouteDetailsUI(originKey, destKey, path);
+    }
+
+    function getSelectedPorts() {
+        const originSelect = document.getElementById('port-origin-select');
+        const destSelect = document.getElementById('port-destination-select');
+        return {
+            originKey: originSelect ? originSelect.value : 'tanjungPriok',
+            destKey: destSelect ? destSelect.value : 'hamburg'
+        };
+    }
+
+    function initDropdownListeners() {
+        const originSelect = document.getElementById('port-origin-select');
+        const destSelect = document.getElementById('port-destination-select');
+
+        const handler = () => {
+            const { originKey, destKey } = getSelectedPorts();
+            drawRoute(originKey, destKey);
+        };
+
+        if (originSelect) originSelect.addEventListener('change', handler);
+        if (destSelect) destSelect.addEventListener('change', handler);
+    }
+
+    async function initMap() {
+        const mapDiv = document.getElementById('export-route-map');
+        if (!mapDiv) return;
+
+        await google.maps.importLibrary("maps");
+        await google.maps.importLibrary("marker");
+
+        map = new google.maps.Map(mapDiv, {
+            center: { lat: 23.0, lng: 58.0 },
+            zoom: 3,
+            mapId: "EXIMORA_ROUTE_MAP"
+        });
+
+        initDropdownListeners();
+        const { originKey, destKey } = getSelectedPorts();
+        drawRoute(originKey, destKey);
+    }
+
+    function waitForGoogleMaps() {
+        if (window.google && window.google.maps) {
+            initMap();
+        } else {
+            setTimeout(waitForGoogleMaps, 100);
+        }
+    }
+
+    waitForGoogleMaps();
+</script>
+</body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+<div class="fixed inset-0 w-full h-full bg-transparent" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_34" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_34');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  
+const mapElements = document.querySelectorAll('gmp-map');
+
+mapElements.forEach(mapEl => {
+    mapEl.addEventListener('gmp-load', async () => {
+        const { Map } = await google.maps.importLibrary("maps");
+        const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+        const map = mapEl.innerMap;
+
+        // Koordinat Pelabuhan Utama untuk simulasi
+        const ports = {
+            hamburg: { lat: 53.5511, lng: 9.9937, label: "Pelabuhan Hamburg (DE)" },
+            tanjungPriok: { lat: -6.1033, lng: 106.8833, label: "Pelabuhan Tanjung Priok (ID)" },
+            singapore: { lat: 1.2741, lng: 103.8014, label: "Pelabuhan Singapura (SG)" }
+        };
+
+        // Tambahkan Marker Animasi untuk Pelabuhan Asal
+        const originMarker = new AdvancedMarkerElement({
+            map,
+            position: ports.tanjungPriok,
+            title: "Pelabuhan Asal",
+            gmpDraggable: false,
+        });
+
+        // Tambahkan Marker Animasi untuk Pelabuhan Tujuan
+        const destinationMarker = new AdvancedMarkerElement({
+            map,
+            position: ports.hamburg,
+            title: "Pelabuhan Tujuan",
+        });
+
+        // Efek animasi "Drop" sederhana menggunakan CSS class pada element penanda
+        originMarker.element.classList.add('animate-bounce');
+        
+        // Listener untuk pemilihan (simulasi interaksi)
+        map.addListener('click', (e) => {
+            console.log("Koordinat dipilih:", e.latLng.toJSON());
+        });
+    });
+});
+
+})();
+</script>
+</div>
+</body>
+</html>

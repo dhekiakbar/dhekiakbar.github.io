@@ -1,0 +1,386 @@
+<!doctype html>
+
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container": "#eeeeec",
+              "primary-container": "#007a5e",
+              error: "#ba1a1a",
+              secondary: "#296956",
+              "surface-tint": "#006c53",
+              "secondary-fixed-dim": "#93d3bd",
+              "on-background": "#1a1c1b",
+              "primary-fixed": "#95f5d2",
+              "inverse-primary": "#79d8b7",
+              "outline-variant": "#bdc9c2",
+              "surface-variant": "#e2e3e0",
+              "on-primary": "#ffffff",
+              "surface-dim": "#dadad8",
+              "on-tertiary": "#ffffff",
+              "on-primary-container": "#a4ffdd",
+              primary: "#005f48",
+              "inverse-on-surface": "#f1f1ef",
+              "on-secondary": "#ffffff",
+              "surface-container-high": "#e8e8e6",
+              "on-surface-variant": "#3e4944",
+              surface: "#f9f9f7",
+              "on-tertiary-fixed": "#151d1c",
+              "on-error": "#ffffff",
+              "inverse-surface": "#2f3130",
+              "surface-container-highest": "#e2e3e0",
+              "on-tertiary-container": "#e6efec",
+              "surface-bright": "#f9f9f7",
+              "error-container": "#ffdad6",
+              background: "#f9f9f7",
+              "tertiary-container": "#646d6b",
+              "surface-container-low": "#f4f4f1",
+              tertiary: "#4c5553",
+              "secondary-fixed": "#aff0d8",
+              "on-primary-fixed-variant": "#00513d",
+              "on-error-container": "#93000a",
+              "tertiary-fixed": "#dbe4e2",
+              "on-tertiary-fixed-variant": "#404947",
+              "on-primary-fixed": "#002117",
+              outline: "#6e7a74",
+              "on-secondary-fixed": "#002118",
+              "on-secondary-container": "#306f5c",
+              "primary-fixed-dim": "#79d8b7",
+              "tertiary-fixed-dim": "#bfc8c6",
+              "surface-container-lowest": "#ffffff",
+              "secondary-container": "#aff0d8",
+              "on-surface": "#1a1c1b",
+              "on-secondary-fixed-variant": "#07513f",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            spacing: {
+              "stack-md": "16px",
+              unit: "8px",
+              "container-max": "1280px",
+              "stack-lg": "24px",
+              "stack-xl": "48px",
+              gutter: "24px",
+              "stack-xs": "4px",
+              "stack-sm": "8px",
+              margin: "32px",
+            },
+            fontFamily: {
+              h3: ["Lexend"],
+              h1: ["Lexend"],
+              "body-lg": ["Lexend"],
+              "label-md": ["Lexend"],
+              "body-sm": ["Lexend"],
+              display: ["Lexend"],
+              "label-sm": ["Lexend"],
+              h2: ["Lexend"],
+              "body-md": ["Lexend"],
+            },
+            fontSize: {
+              h3: ["20px", { lineHeight: "1.4", fontWeight: "500" }],
+              h1: [
+                "32px",
+                {
+                  lineHeight: "1.2",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+              "label-md": [
+                "14px",
+                { lineHeight: "1", letterSpacing: "0.02em", fontWeight: "500" },
+              ],
+              "body-sm": ["14px", { lineHeight: "1.5", fontWeight: "400" }],
+              display: [
+                "48px",
+                {
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-sm": ["12px", { lineHeight: "1", fontWeight: "600" }],
+              h2: ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-on-background font-body-md min-h-screen pb-32"
+  >
+    <!-- Top AppBar -->
+    <header
+      class="bg-white dark:bg-slate-950 flex justify-between items-center w-full px-4 h-16 border-b border-[#E0EAE7] dark:border-slate-800 sticky top-0 z-[60]"
+    >
+      <div class="flex items-center gap-3">
+        <div
+          class="w-10 h-10 rounded-full overflow-hidden bg-secondary-container"
+        >
+          <img
+            alt="Foto Profil Pengguna"
+            data-alt="professional portrait of a young business person in clean corporate attire against a neutral soft studio background"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuANJbW-5M3Q53c60p2WilOboRMZvvAsUVdPql4InnHeLXSc6MIUvAoy6YiwaGXdKLqWCITUtJprtw5n_mf43ERZd6iUsn8S_Ho_jDTU7hgIrLTKkd5xt9TQHVdITyCnpNZwChAfpG6UC6xFXQANXjPTkuN59mkcUh7kpGP6serppu61P1AnaV27dFcxSpKApaTNyrkkZEfj7ugw6-RXvXruatoa6JICQoMWkoURPvZSafvIS_JnfGI5jHby9Eh4NfE_E4drAuQ7ZbGh"
+          />
+        </div>
+        <h1
+          class="font-['Lexend'] tracking-tight text-xl font-bold text-emerald-800 dark:text-emerald-400"
+        >
+          Eximora
+        </h1>
+      </div>
+      <button
+        class="material-symbols-outlined text-emerald-800 dark:text-emerald-400 p-2 hover:bg-emerald-50 rounded-full transition-opacity active:opacity-80"
+      >
+        notifications
+      </button>
+    </header>
+    <!-- Main Content Canvas -->
+    <main class="px-4 py-6 space-y-stack-lg max-w-md mx-auto">
+      <!-- Simulation Progress Header -->
+      <section class="space-y-stack-sm">
+        <div class="flex justify-between items-end">
+          <div>
+            <h2 class="font-h2 text-h2 text-primary">Simulasi Ekspor</h2>
+            <p class="font-body-sm text-body-sm text-outline">
+              Kopi Arabica ke Hamburg
+            </p>
+          </div>
+          <span
+            class="font-label-md text-label-md text-primary bg-secondary-container px-3 py-1 rounded-full"
+            >65% Selesai</span
+          >
+        </div>
+        <div
+          class="w-full bg-surface-container h-3 rounded-full overflow-hidden"
+        >
+          <div class="bg-primary-container h-full w-[65%] rounded-full"></div>
+        </div>
+      </section>
+      <!-- Map Tracking View -->
+      <section
+        class="relative h-64 rounded-xl overflow-hidden border border-[#E0EAE7] shadow-sm"
+      >
+        <img
+          class="w-full h-full object-cover"
+          data-alt="minimalist clean world map with a subtle nautical path from Southeast Asia to Europe with a small cargo ship icon"
+          data-location="Oceanic route between Indonesia and Germany"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzblD7X3QgL9GzflYONEAX8NPysZu723MO3pzvlCSSq7kiTq8VXGeu5HDnChQK_ndeSg67PYCm0qJ3RCy5diVBYZHZzdRA65HaW6FQ8ZlKbnwo8aXW21DGvPx2ggrLQaVyJXka3tEOTsQwkNNrmUVr35e__9rUqvxEnTejQ1s0MGqFyKKPau7uOyKA3wT0zEqr6U-HNh18k9-dvRTZtglm1FgA_gGoSe-v1a5yZ-1qiyG5aPtuihg6mM0W7Mup-DIQFDIkPq60f2Nl"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"
+        ></div>
+        <div
+          class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-3 rounded-lg flex items-center gap-3"
+        >
+          <div class="bg-primary-container text-on-primary p-2 rounded-lg">
+            <span class="material-symbols-outlined">directions_boat</span>
+          </div>
+          <div>
+            <p
+              class="font-label-sm text-label-sm text-outline uppercase tracking-wider"
+            >
+              Lokasi Saat Ini
+            </p>
+            <p class="font-body-md text-body-md font-semibold text-on-surface">
+              Laut Arab (Transit)
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Action Required Section -->
+      <section
+        class="bg-error-container/20 border border-error/20 p-4 rounded-xl space-y-stack-md"
+      >
+        <div class="flex items-center gap-2 text-error">
+          <span class="material-symbols-outlined">warning</span>
+          <h3 class="font-h3 text-h3">Perlu Tindakan</h3>
+        </div>
+        <div
+          class="bg-white rounded-lg p-4 flex items-center justify-between border border-error/10"
+        >
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-error"
+              >description</span
+            >
+            <div>
+              <p class="font-body-md font-medium">Verifikasi Dokumen COO</p>
+              <p class="font-body-sm text-outline">
+                Certificate of Origin belum divalidasi
+              </p>
+            </div>
+          </div>
+          <button
+            class="bg-primary-container text-on-primary px-4 py-2 rounded-lg font-label-md"
+          >
+            Cek
+          </button>
+        </div>
+      </section>
+      <!-- Critical Checklist -->
+      <section class="space-y-stack-md">
+        <h3 class="font-h3 text-h3 text-on-surface">Checklist Kritis</h3>
+        <div class="space-y-stack-sm">
+          <!-- Checklist Item 1 -->
+          <label
+            class="flex items-start gap-4 bg-white border border-[#E0EAE7] p-4 rounded-xl active:scale-[0.98] transition-transform"
+          >
+            <input
+              checked=""
+              class="mt-1 w-5 h-5 rounded border-outline text-primary focus:ring-primary"
+              type="checkbox"
+            />
+            <div class="flex-1">
+              <p class="font-body-md font-semibold text-on-surface">
+                Pemesanan Kontainer
+              </p>
+              <p class="font-body-sm text-outline">Dipesan pada 12 Okt 2023</p>
+            </div>
+            <span
+              class="material-symbols-outlined text-primary"
+              style="font-variation-settings: &quot;FILL&quot; 1"
+              >check_circle</span
+            >
+          </label>
+          <!-- Checklist Item 2 -->
+          <label
+            class="flex items-start gap-4 bg-white border border-[#E0EAE7] p-4 rounded-xl active:scale-[0.98] transition-transform"
+          >
+            <input
+              checked=""
+              class="mt-1 w-5 h-5 rounded border-outline text-primary focus:ring-primary"
+              type="checkbox"
+            />
+            <div class="flex-1">
+              <p class="font-body-md font-semibold text-on-surface">
+                Pemuatan di Pelabuhan
+              </p>
+              <p class="font-body-sm text-outline">
+                Selesai di Pelabuhan Tanjung Priok
+              </p>
+            </div>
+            <span
+              class="material-symbols-outlined text-primary"
+              style="font-variation-settings: &quot;FILL&quot; 1"
+              >check_circle</span
+            >
+          </label>
+          <!-- Checklist Item 3 -->
+          <label
+            class="flex items-start gap-4 bg-white border border-[#E0EAE7] p-4 rounded-xl active:scale-[0.98] transition-transform"
+          >
+            <input
+              class="mt-1 w-5 h-5 rounded border-outline text-primary focus:ring-primary"
+              type="checkbox"
+            />
+            <div class="flex-1">
+              <p class="font-body-md font-semibold text-on-surface">
+                Bea Cukai Jerman
+              </p>
+              <p class="font-body-sm text-outline">
+                Menunggu kedatangan di Hamburg
+              </p>
+            </div>
+          </label>
+        </div>
+      </section>
+    </main>
+    <!-- Floating Action Button -->
+    <button
+      class="fixed bottom-24 right-6 w-14 h-14 bg-primary-container text-on-primary rounded-full shadow-lg flex items-center justify-center active:scale-90 transition-transform z-40"
+    >
+      <span class="material-symbols-outlined text-3xl">add_box</span>
+    </button>
+    <!-- Bottom Navigation Bar -->
+    <nav
+      class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-white dark:bg-slate-950 border-t border-[#E0EAE7] dark:border-slate-800"
+    >
+      <a
+        class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-3 py-1.5 hover:text-emerald-700"
+        href="#"
+      >
+        <span class="material-symbols-outlined">dashboard</span>
+        <span class="font-['Lexend'] text-[10px] font-medium">Beranda</span>
+      </a>
+      <a
+        class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-3 py-1.5 hover:text-emerald-700"
+        href="#"
+      >
+        <span class="material-symbols-outlined">school</span>
+        <span class="font-['Lexend'] text-[10px] font-medium">Belajar</span>
+      </a>
+      <a
+        class="flex flex-col items-center justify-center bg-emerald-50 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-100 rounded-xl px-3 py-1.5 scale-95 transition-transform duration-150"
+        href="#"
+      >
+        <span
+          class="material-symbols-outlined"
+          style="font-variation-settings: &quot;FILL&quot; 1"
+          >model_training</span
+        >
+        <span class="font-['Lexend'] text-[10px] font-medium">Simulasi</span>
+      </a>
+      <a
+        class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-3 py-1.5 hover:text-emerald-700"
+        href="#"
+      >
+        <span class="material-symbols-outlined">quiz</span>
+        <span class="font-['Lexend'] text-[10px] font-medium">Kuis</span>
+      </a>
+      <a
+        class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-3 py-1.5 hover:text-emerald-700"
+        href="#"
+      >
+        <span class="material-symbols-outlined">settings</span>
+        <span class="font-['Lexend'] text-[10px] font-medium">Setelan</span>
+      </a>
+    </nav>
+  </body>
+</html>

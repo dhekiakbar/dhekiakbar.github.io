@@ -1,0 +1,332 @@
+<!doctype html>
+
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Eximora - Masuk &amp; Daftar</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container": "#eeeeec",
+              "primary-container": "#007a5e",
+              error: "#ba1a1a",
+              secondary: "#296956",
+              "surface-tint": "#006c53",
+              "secondary-fixed-dim": "#93d3bd",
+              "on-background": "#1a1c1b",
+              "primary-fixed": "#95f5d2",
+              "inverse-primary": "#79d8b7",
+              "outline-variant": "#bdc9c2",
+              "surface-variant": "#e2e3e0",
+              "on-primary": "#ffffff",
+              "surface-dim": "#dadad8",
+              "on-tertiary": "#ffffff",
+              "on-primary-container": "#a4ffdd",
+              primary: "#005f48",
+              "inverse-on-surface": "#f1f1ef",
+              "on-secondary": "#ffffff",
+              "surface-container-high": "#e8e8e6",
+              "on-surface-variant": "#3e4944",
+              surface: "#f9f9f7",
+              "on-tertiary-fixed": "#151d1c",
+              "on-error": "#ffffff",
+              "inverse-surface": "#2f3130",
+              "surface-container-highest": "#e2e3e0",
+              "on-tertiary-container": "#e6efec",
+              "surface-bright": "#f9f9f7",
+              "error-container": "#ffdad6",
+              background: "#f9f9f7",
+              "tertiary-container": "#646d6b",
+              "surface-container-low": "#f4f4f1",
+              tertiary: "#4c5553",
+              "secondary-fixed": "#aff0d8",
+              "on-primary-fixed-variant": "#00513d",
+              "on-error-container": "#93000a",
+              "tertiary-fixed": "#dbe4e2",
+              "on-tertiary-fixed-variant": "#404947",
+              "on-primary-fixed": "#002117",
+              outline: "#6e7a74",
+              "on-secondary-fixed": "#002118",
+              "on-secondary-container": "#306f5c",
+              "primary-fixed-dim": "#79d8b7",
+              "tertiary-fixed-dim": "#bfc8c6",
+              "surface-container-lowest": "#ffffff",
+              "secondary-container": "#aff0d8",
+              "on-surface": "#1a1c1b",
+              "on-secondary-fixed-variant": "#07513f",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            spacing: {
+              "stack-md": "16px",
+              unit: "8px",
+              "container-max": "1280px",
+              "stack-lg": "24px",
+              "stack-xl": "48px",
+              gutter: "24px",
+              "stack-xs": "4px",
+              "stack-sm": "8px",
+              margin: "32px",
+            },
+            fontFamily: {
+              h3: ["Lexend"],
+              h1: ["Lexend"],
+              "body-lg": ["Lexend"],
+              "label-md": ["Lexend"],
+              "body-sm": ["Lexend"],
+              display: ["Lexend"],
+              "label-sm": ["Lexend"],
+              h2: ["Lexend"],
+              "body-md": ["Lexend"],
+            },
+            fontSize: {
+              h3: ["20px", { lineHeight: "1.4", fontWeight: "500" }],
+              h1: [
+                "32px",
+                {
+                  lineHeight: "1.2",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+              "label-md": [
+                "14px",
+                { lineHeight: "1", letterSpacing: "0.02em", fontWeight: "500" },
+              ],
+              "body-sm": ["14px", { lineHeight: "1.5", fontWeight: "400" }],
+              display: [
+                "48px",
+                {
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-sm": ["12px", { lineHeight: "1", fontWeight: "600" }],
+              h2: ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        background-color: #f9f9f7;
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body class="font-body-md text-on-surface">
+    <main class="min-h-screen flex flex-col">
+      <!-- Header Branding Section -->
+      <section
+        class="bg-primary px-margin py-stack-xl flex flex-col items-center justify-center text-center relative overflow-hidden"
+      >
+        <!-- Decorative Grain Texture / Abstract Element -->
+        <div
+          class="absolute inset-0 opacity-10 pointer-events-none"
+          style="
+            background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuC_tbqdCq4ncvWCWAAOuVPj403Bir0xn7Xsob8yrZZLq6-9xTknRhDRFmjNu0PQgquyY0NeU24xKmhlkMeTyEhn-pZCw10EfclX2QyL038TJ9XFvfXbyKfH9biCze438fA_PjiS9H81UX6qErCN-qj4QZn9Zau9-A6wgcOxvH5UReWgLY5HFiOMhU-811iOrQRzrnuC2ii19LxtITJQowbOQsj2lPlsQBZLRXnwWeviJ67firso4IPw4BSVIXNZdUXjmSbfYhedVrOx&quot;);
+          "
+        ></div>
+        <div class="relative z-10">
+          <h1 class="font-h1 text-on-primary mb-stack-xs">Eximora</h1>
+          <p
+            class="font-body-sm text-on-primary-container opacity-90 max-w-[280px]"
+          >
+            Gerbang Keunggulan Akademik dan Profesional Perdagangan Global
+          </p>
+        </div>
+        <!-- Abstract background graphic for Modern Academic Minimalism -->
+        <div
+          class="absolute -bottom-12 -right-12 w-48 h-48 bg-on-primary-container/10 rounded-full blur-3xl"
+        ></div>
+        <div
+          class="absolute -top-12 -left-12 w-40 h-40 bg-on-primary-container/5 rounded-full blur-2xl"
+        ></div>
+      </section>
+      <!-- Form Canvas Section -->
+      <section
+        class="flex-grow bg-surface -mt-stack-lg rounded-t-[24px] relative z-20 px-margin pt-stack-xl pb-stack-xl"
+      >
+        <div class="max-w-md mx-auto">
+          <header class="mb-stack-lg">
+            <h2 class="font-h2 text-primary mb-stack-xs">Selamat Datang</h2>
+            <p class="font-body-sm text-outline">
+              Masuk ke akun Anda untuk melanjutkan belajar
+            </p>
+          </header>
+          <form class="space-y-stack-md">
+            <!-- Email Input -->
+            <div class="space-y-stack-xs">
+              <label
+                class="font-label-sm text-on-surface-variant block ml-unit"
+                for="email"
+                >Alamat Email</label
+              >
+              <div class="relative">
+                <span
+                  class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-[20px]"
+                  >mail</span
+                >
+                <input
+                  class="w-full pl-12 pr-4 py-3.5 bg-surface-container-lowest border border-outline-variant rounded-xl font-body-md focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all duration-200"
+                  id="email"
+                  placeholder="nama@email.com"
+                  type="email"
+                />
+              </div>
+            </div>
+            <!-- Password Input -->
+            <div class="space-y-stack-xs">
+              <label
+                class="font-label-sm text-on-surface-variant block ml-unit"
+                for="password"
+                >Kata Sandi</label
+              >
+              <div class="relative">
+                <span
+                  class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-[20px]"
+                  >lock</span
+                >
+                <input
+                  class="w-full pl-12 pr-12 py-3.5 bg-surface-container-lowest border border-outline-variant rounded-xl font-body-md focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all duration-200"
+                  id="password"
+                  placeholder="••••••••"
+                  type="password"
+                />
+                <span
+                  class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline text-[20px] cursor-pointer"
+                  >visibility</span
+                >
+              </div>
+              <div class="flex justify-end">
+                <a
+                  class="font-label-sm text-primary hover:underline mt-stack-xs"
+                  href="#"
+                  >Lupa Kata Sandi?</a
+                >
+              </div>
+            </div>
+            <!-- Login Button -->
+            <button
+              class="w-full bg-primary text-on-primary font-label-md py-4 rounded-xl flex items-center justify-center gap-stack-sm active:scale-[0.98] transition-transform shadow-sm"
+              type="submit"
+            >
+              Masuk Sekarang
+              <span class="material-symbols-outlined text-[18px]"
+                >arrow_forward</span
+              >
+            </button>
+          </form>
+          <!-- Divider -->
+          <div class="flex items-center gap-stack-md my-stack-xl">
+            <div class="h-[1px] flex-grow bg-outline-variant/50"></div>
+            <span class="font-label-sm text-outline uppercase tracking-widest"
+              >atau</span
+            >
+            <div class="h-[1px] flex-grow bg-outline-variant/50"></div>
+          </div>
+          <!-- Social Logins -->
+          <div class="grid grid-cols-2 gap-stack-md mb-stack-xl">
+            <button
+              class="flex items-center justify-center gap-stack-sm py-3.5 border border-outline-variant rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-colors"
+            >
+              <img
+                alt="Google Logo"
+                class="w-5 h-5"
+                data-alt="Official Google multicolored G logo on a white circular background for social authentication buttons"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCexBgXMCzGSwpknol3C88Ze3mQffjNKGXykhN69ivFG9EwEWy7o2vtlsjJoyk2JCmyYpsKJHnmeExSbvpC14dSmzcRJ4SK3HG9VvxE45R7fpKBwYWfIv4kLNzxJnSxucIENkK_P6p9ebTVkbXqrOc3LhtGaRtxp5DR9Ud1eG3pMzdIhW1zkLWNpnTPixyp9Lo0KxBIbtp5tCtAcHYPAe_3q0xo7c4GRQ5T2EviyIhoT8LjXK-V_R8XGW3oz6ajaLMu62Cr-ZYK8siW"
+              />
+              <span class="font-label-md text-on-surface">Google</span>
+            </button>
+            <button
+              class="flex items-center justify-center gap-stack-sm py-3.5 border border-outline-variant rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-colors"
+            >
+              <img
+                alt="LinkedIn Logo"
+                class="w-5 h-5"
+                data-alt="Blue and white professional LinkedIn icon logo for business social authentication"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu3IGVvUjmWvZWznyvdPIu1PiZ3nrh6n8r9ffSNFsLWrJErSSjkqhE_MNLhJmCvsn78xGjuUH3PBiCdPp7u3XpKgUnmEz4uiTmyW3GTD-mhmfho46Yxmm_IVHN8ZPDtr_xHPWowF7RyWN_sqopyOtwYsUCTWJbjb0oWzkGdAIq5RN169bpr8rg8rZGx2hhYUTQKods1QyVIGHADBvD5X1a66A1fkHkxkGMvtStHPELY01xRhLLVFFkjEY5xn2fKgcmeTNK0Im2602X"
+              />
+              <span class="font-label-md text-on-surface">LinkedIn</span>
+            </button>
+          </div>
+          <!-- Footer Links -->
+          <footer class="text-center space-y-stack-sm">
+            <p class="font-body-sm text-on-surface-variant">
+              Belum punya akun?
+              <a class="text-primary font-semibold hover:underline" href="#"
+                >Daftar Sekarang</a
+              >
+            </p>
+            <div class="pt-stack-md flex justify-center gap-stack-lg">
+              <a class="font-label-sm text-outline hover:text-primary" href="#"
+                >Syarat &amp; Ketentuan</a
+              >
+              <a class="font-label-sm text-outline hover:text-primary" href="#"
+                >Kebijakan Privasi</a
+              >
+            </div>
+          </footer>
+        </div>
+      </section>
+      <!-- Floating Testimonial/Insight Chip (Bento-style element) -->
+      <div class="px-margin mb-stack-xl">
+        <div
+          class="bg-primary-fixed/30 border border-primary-fixed p-stack-md rounded-xl flex gap-stack-md items-start"
+        >
+          <span
+            class="material-symbols-outlined text-primary text-[24px]"
+            style="font-variation-settings: &quot;FILL&quot; 1"
+            >verified</span
+          >
+          <div>
+            <p class="font-label-sm text-on-primary-fixed mb-1">
+              Kurikulum Berstandar Global
+            </p>
+            <p class="font-body-sm text-on-primary-fixed-variant leading-tight">
+              Bergabunglah dengan 50.000+ profesional di seluruh dunia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Bottom spacing for mobile navigation area if needed later -->
+    <div class="h-8"></div>
+  </body>
+</html>
